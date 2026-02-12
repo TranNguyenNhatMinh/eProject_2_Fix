@@ -1,0 +1,507 @@
+/* ============================================
+   RESPONSIVE DESIGN STYLES
+   File này chứa các responsive adjustments cho toàn bộ website
+   ============================================ */
+
+/* ============================================
+   1. LARGE TABLETS (992px - 1200px)
+   ============================================ */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .aquarium-logo-wrapper {
+        max-width: 250px;
+        width: 250px;
+    }
+    
+    .aquarium-logo-img {
+        max-height: 50px;
+        height: 50px;
+    }
+    
+    .site-aquarium .aquarium-logo-wrapper {
+        max-width: 280px;
+        width: 280px;
+    }
+    
+    .site-aquarium .aquarium-logo-img {
+        max-height: 55px;
+        height: 55px;
+    }
+    
+    .main-menu .nav-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.65rem;
+    }
+}
+
+/* ============================================
+   2. TABLET AND BELOW (<992px)
+   ============================================ */
+@media (max-width: 991.98px) {
+    /* Header adjustments */
+    .header-main-row,
+    .site-aquarium .header-main-row,
+    .site-boardwalk .header-main-row,
+    .site-sweet-shop .header-main-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 0;
+        justify-content: center;
+    }
+    
+    .logo-section {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .aquarium-logo-wrapper {
+        max-width: 250px;
+        width: 250px;
+        margin: 0 auto;
+    }
+    
+    .aquarium-logo-img {
+        max-width: 100%;
+        height: auto;
+        max-height: 50px;
+        height: 50px;
+    }
+    
+    .site-aquarium .aquarium-logo-wrapper {
+        max-width: 280px;
+        width: 280px;
+    }
+    
+    .site-aquarium .aquarium-logo-img {
+        max-height: 55px;
+        height: 55px;
+    }
+    
+    .main-navigation {
+        width: 100%;
+        margin-top: 0.5rem;
+        margin-right: 0;
+        justify-content: center;
+    }
+    
+    .navbar-toggler {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+        padding: 0;
+        background-color: transparent;
+        border: 2px solid var(--aqua-color);
+        border-radius: var(--radius-md);
+        color: var(--aqua-color);
+        transition: all var(--transition-base);
+        cursor: pointer;
+    }
+    
+    .navbar-toggler:hover,
+    .navbar-toggler:focus {
+        background-color: var(--aqua-color);
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 134, 179, 0.3);
+    }
+    
+    .navbar-toggler-icon {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .navbar-toggler-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .navbar-collapse {
+        display: none;
+        background-color: #f8f9fa;
+        border-radius: var(--radius-lg);
+        padding: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: var(--shadow-md);
+        width: 100%;
+    }
+    
+    .navbar-collapse.show {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .main-menu .nav-link {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-radius: var(--radius-md);
+    }
+    
+    .main-menu .nav-link::before { display: none; }
+    
+    .main-menu .nav-link:hover {
+        transform: translateX(5px);
+        background-color: rgba(0, 134, 179, 0.1);
+    }
+    
+    .main-menu .nav-link {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   3. MOBILE (≤768px)
+   ============================================ */
+@media (max-width: 768px) {
+    /* Top bar adjustments */
+    .top-bar-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.3rem 0;
+    }
+    
+    .top-links-nav {
+        width: 100%;
+        justify-content: center;
+        order: 1;
+    }
+    
+    .top-link {
+        font-size: 0.7rem;
+    }
+    
+    .social-links {
+        order: 2;
+        justify-content: center;
+    }
+    
+    /* Header adjustments */
+    .header-main-row,
+    .site-aquarium .header-main-row,
+    .site-boardwalk .header-main-row,
+    .site-sweet-shop .header-main-row {
+        padding: 0.5rem 0;
+        gap: 0.75rem;
+    }
+    
+    .aquarium-logo-wrapper {
+        max-width: 220px;
+        width: 220px;
+    }
+    
+    .aquarium-logo-img {
+        max-height: 45px;
+        height: 45px;
+    }
+    
+    .site-aquarium .aquarium-logo-wrapper {
+        max-width: 250px;
+        width: 250px;
+    }
+    
+    .site-aquarium .aquarium-logo-img {
+        max-height: 50px;
+        height: 50px;
+    }
+    
+    .navbar-collapse {
+        padding: 0.75rem;
+    }
+    
+    .main-menu .nav-link {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.75rem;
+    }
+    
+    /* Hero section */
+    .hero-section {
+        min-height: 400px;
+        padding: 60px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .feature-card {
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+/* ============================================
+   4. SMALL MOBILE (≤576px)
+   ============================================ */
+@media (max-width: 575.98px) {
+    /* Top bar - stack vertically */
+    .top-bar-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0;
+    }
+    
+    .top-links-nav {
+        width: 100%;
+        justify-content: center;
+        order: 1;
+    }
+    
+    .top-link {
+        font-size: 0.65rem;
+    }
+    
+    .top-link span.d-none.d-sm-inline {
+        display: none;
+    }
+    
+    .social-links {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+    
+    .search-btn {
+        order: 3;
+        margin-top: 0.25rem;
+    }
+    
+    /* Header adjustments */
+    .header-main-row,
+    .site-aquarium .header-main-row,
+    .site-boardwalk .header-main-row,
+    .site-sweet-shop .header-main-row {
+        padding: 0.4rem 0;
+        gap: 0.5rem;
+    }
+    
+    .aquarium-logo-wrapper {
+        max-width: 200px;
+        width: 200px;
+    }
+    
+    .aquarium-logo-img {
+        max-height: 42px;
+        height: 42px;
+    }
+    
+    .site-aquarium .aquarium-logo-wrapper {
+        max-width: 230px;
+        width: 230px;
+    }
+    
+    .site-aquarium .aquarium-logo-img {
+        max-height: 47px;
+        height: 47px;
+    }
+    
+    .navbar-collapse {
+        padding: 0.5rem;
+        margin-top: 0.25rem;
+    }
+    
+    .main-menu .nav-link {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    /* Hero section */
+    .hero-section {
+        min-height: 350px;
+        padding: 40px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+    
+    .hero-section .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px 30px;
+    }
+    
+    .hero-section .d-flex {
+        flex-direction: column;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ============================================
+   5. CONTAINER PADDING - ABSOLUTE CONSISTENCY
+   Override Bootstrap để đảm bảo padding đồng nhất
+   ============================================ */
+body .main-header .container,
+body .top-links-bar .container,
+body .main-header-content .container,
+body .header-main-row .container,
+.main-header.site-aquarium .container,
+.main-header.site-boardwalk .container,
+.main-header.site-sweet-shop .container,
+.main-header.site-aquarium .top-links-bar .container,
+.main-header.site-boardwalk .top-links-bar .container,
+.main-header.site-sweet-shop .top-links-bar .container,
+.main-header.site-aquarium .main-header-content .container,
+.main-header.site-boardwalk .main-header-content .container,
+.main-header.site-sweet-shop .main-header-content .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 1320px !important;
+}
+
+/* Đảm bảo header elements không có margin khác nhau */
+body .main-header,
+body .main-header.site-aquarium,
+body .main-header.site-boardwalk,
+body .main-header.site-sweet-shop {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+
+body .top-links-bar,
+.site-aquarium .top-links-bar,
+.site-boardwalk .top-links-bar,
+.site-sweet-shop .top-links-bar {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+
+body .main-header-content,
+.site-aquarium .main-header-content,
+.site-boardwalk .main-header-content,
+.site-sweet-shop .main-header-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+}
+
+/* Responsive container padding */
+@media (min-width: 576px) {
+    body .main-header .container,
+    body .top-links-bar .container,
+    body .main-header-content .container,
+    body .header-main-row .container,
+    .main-header.site-aquarium .container,
+    .main-header.site-boardwalk .container,
+    .main-header.site-sweet-shop .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    body .main-header .container,
+    body .top-links-bar .container,
+    body .main-header-content .container,
+    body .header-main-row .container,
+    .main-header.site-aquarium .container,
+    .main-header.site-boardwalk .container,
+    .main-header.site-sweet-shop .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    body .main-header .container,
+    body .top-links-bar .container,
+    body .main-header-content .container,
+    body .header-main-row .container,
+    .main-header.site-aquarium .container,
+    .main-header.site-boardwalk .container,
+    .main-header.site-sweet-shop .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    body .main-header .container,
+    body .top-links-bar .container,
+    body .main-header-content .container,
+    body .header-main-row .container,
+    .main-header.site-aquarium .container,
+    .main-header.site-boardwalk .container,
+    .main-header.site-sweet-shop .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+/* ============================================
+   6. FORCE HEADER-MAIN-ROW ĐỒNG NHẤT
+   Override mọi thứ để đảm bảo layout không thay đổi giữa các trang
+   ============================================ */
+body .main-header .header-main-row,
+body .main-header.site-aquarium .header-main-row,
+body .main-header.site-boardwalk .header-main-row,
+body .main-header.site-sweet-shop .header-main-row {
+    min-height: 0 !important;
+    align-items: center !important;
+    padding: 0.5rem 0 !important;
+    gap: 1.5rem !important;
+    justify-content: space-between !important;
+    display: flex !important;
+    flex-direction: row !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+@media (min-width: 992px) {
+    body .main-header .header-main-row,
+    body .main-header.site-aquarium .header-main-row,
+    body .main-header.site-boardwalk .header-main-row,
+    body .main-header.site-sweet-shop .header-main-row {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+}

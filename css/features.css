@@ -1,0 +1,76 @@
+/* ============================================
+   FEATURES CSS - COMPONENT CHUNG CHO FEATURES SECTIONS
+   File này chứa CSS cho features-section component
+   KHÔNG phải homepage-specific
+   ============================================ */
+
+/* ============================================
+   1. FEATURES SECTION STRUCTURE
+   ============================================ */
+.features-section {
+    background-color: #f8f9fa;
+}
+
+/* ============================================
+   2. SECTION TITLES
+   ============================================ */
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   3. FEATURE CARD
+   ============================================ */
+.feature-card {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ============================================
+   4. FEATURE ICON
+   ============================================ */
+.feature-icon {
+    color: var(--primary-color);
+    transition: transform var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+/* ============================================
+   5. FEATURE CARD CONTENT
+   ============================================ */
+.feature-card .card-title {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.feature-card .card-text {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ============================================
+   6. FEATURE CARD LINKS
+   ============================================ */
+.feature-card .btn-link {
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.feature-card .btn-link:hover {
+    padding-left: 5px;
+}

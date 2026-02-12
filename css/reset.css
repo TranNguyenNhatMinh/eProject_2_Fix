@@ -1,0 +1,82 @@
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   File này chứa CSS reset và base styles cho toàn bộ website
+   ============================================ */
+
+/* ============================================
+   1. UNIVERSAL RESET
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   2. HTML & BODY
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    line-height: 1.75;
+    color: var(--text-dark);
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff;
+    letter-spacing: 0.01em;
+}
+
+/* ============================================
+   3. ACCESSIBILITY - FOCUS STYLES
+   ============================================ */
+:focus-visible {
+    outline: 2px solid var(--aqua-color);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   4. IMAGE OPTIMIZATION
+   ============================================ */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   5. LINK STYLES
+   ============================================ */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================================
+   6. BUTTON RESET
+   ============================================ */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ============================================
+   7. LIST RESET
+   ============================================ */
+ul, ol {
+    list-style: none;
+}
+
+/* ============================================
+   8. SHARED HERO ANIMATION
+   ============================================ */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(1.1); }
+    to { opacity: 1; transform: scale(1); }
+}

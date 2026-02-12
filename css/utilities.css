@@ -1,0 +1,35 @@
+/* ============================================
+   UTILITY CLASSES & COMMON COMPONENTS
+   File này chứa các utility classes và component enhancements
+   ============================================ */
+
+/* ============================================
+   1. CARD ENHANCEMENTS
+   ============================================ */
+.card {
+    border: none;
+    transition: all var(--transition-base);
+}
+
+/* ============================================
+   2. BUTTON ENHANCEMENTS
+   ============================================ */
+.btn {
+    transition: all var(--transition-base);
+    font-weight: 500;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   3. UTILITY CLASSES
+   ============================================ */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-custom {
+    box-shadow: var(--shadow-lg);
+}

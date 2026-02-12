@@ -1,0 +1,409 @@
+/* ============================================
+   AUTH PAGES - Aquarium Theme (Giao diện cũ)
+   ============================================ */
+
+/* Ocean background */
+body.auth-page {
+    background: linear-gradient(135deg, #001a33 0%, #003d6b 25%, #0066a3 50%, #0086b3 75%, #00a3d9 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    font-family: var(--font-family-primary, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+}
+
+body.auth-page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('data:image/svg+xml,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><path d="M0,100 Q50,60 100,100 T200,100 L200,200 L0,200 Z" fill="rgba(255,255,255,0.04)"/><path d="M0,120 Q50,80 100,120 T200,120 L200,200 L0,200 Z" fill="rgba(255,255,255,0.03)"/></svg>');
+    background-size: 400px 400px;
+    animation: waveMove 30s linear infinite;
+    z-index: 0;
+}
+
+@keyframes waveMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 400px 0; }
+}
+
+body.auth-page::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.2) 4px, transparent 4px),
+        radial-gradient(circle at 65% 65%, rgba(255, 255, 255, 0.2) 4px, transparent 4px),
+        radial-gradient(circle at 85% 35%, rgba(255, 255, 255, 0.15) 3px, transparent 3px);
+    background-size: 300px 300px, 280px 280px, 200px 200px;
+    animation: bubbleFloat 25s ease-in-out infinite;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+@keyframes bubbleFloat {
+    0%, 100% { opacity: 0.6; transform: translateY(0); }
+    50% { opacity: 0.8; transform: translateY(-30px); }
+}
+
+.auth-container {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-container .container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.auth-container .row {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container .col-12 {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card 2 cột */
+.auth-bar {
+    max-width: 1100px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 24px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    min-height: 580px;
+    border: 2px solid rgba(0, 134, 179, 0.4);
+}
+
+/* Cột trái - Aquarium */
+.auth-bar-left {
+    flex: 0 0 45%;
+    background: linear-gradient(135deg, #004b8d 0%, #0066a3 40%, #0086b3 70%, #00a3d9 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 3rem;
+    color: white;
+    min-width: 380px;
+}
+
+.auth-bar-left-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 360px;
+}
+
+.auth-bar-icon {
+    display: none;
+}
+
+.auth-bar-left h2 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.auth-bar-left .subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.auth-bar-left .aquarium-features {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.auth-bar-left .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    padding: 0.6rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    transition: background 0.3s;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.auth-bar-left .feature-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.auth-bar-left .feature-item i {
+    width: 24px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+/* Cột phải - Form */
+.auth-bar-right {
+    flex: 0 0 55%;
+    padding: 4rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    min-width: 420px;
+}
+
+.auth-bar-right h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #001a33;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.auth-bar-right h3 i {
+    color: var(--aqua-color, #0086b3);
+    font-size: 1.35rem;
+}
+
+.auth-bar-right .subtitle-small {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.auth-form .form-label {
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.auth-form .form-label i {
+    color: var(--aqua-color, #0086b3);
+    width: 18px;
+    font-size: 0.9rem;
+}
+
+.auth-form .form-control {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #fff;
+    color: #1a1a1a;
+}
+
+.auth-form .form-control:focus {
+    border-color: var(--aqua-color, #0086b3);
+    box-shadow: 0 0 0 4px rgba(0, 134, 179, 0.15);
+    outline: none;
+}
+
+.auth-form .form-control::placeholder {
+    color: #9ca3af;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, var(--aqua-color, #0086b3) 0%, #006b8f 100%);
+    color: white;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 134, 179, 0.35);
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 134, 179, 0.45);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+.alert {
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    border-left: 4px solid;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.alert-danger {
+    background: #fef2f2;
+    color: #991b1b;
+    border-left-color: #dc2626;
+}
+
+.alert-success {
+    background: #f0fdf4;
+    color: #166534;
+    border-left-color: #22c55e;
+}
+
+.alert-info {
+    background: #eff6ff;
+    color: #1e40af;
+    border-left-color: #3b82f6;
+}
+
+.alert i {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.auth-link {
+    color: var(--aqua-color, #0086b3);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link:hover {
+    color: #006b8f;
+    text-decoration: underline;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.auth-footer p {
+    margin: 0;
+}
+
+.text-muted {
+    color: #6b7280;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.text-danger {
+    color: #dc2626;
+}
+
+.auth-form .mb-4 {
+    margin-bottom: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .auth-bar {
+        flex-direction: column;
+        max-width: 560px;
+        min-height: auto;
+    }
+
+    .auth-bar-left {
+        min-width: auto;
+        padding: 2.5rem 2rem;
+        min-height: 260px;
+        flex: 0 0 auto;
+    }
+
+    .auth-bar-left h2 {
+        font-size: 1.75rem;
+    }
+
+    .auth-bar-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .auth-bar-right {
+        min-width: auto;
+        padding: 2.5rem 2rem;
+        flex: 0 0 auto;
+    }
+
+    .auth-bar-left .aquarium-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .auth-bar {
+        border-radius: 16px;
+        max-width: calc(100% - 1.5rem);
+    }
+
+    .auth-container {
+        padding: 2rem 0.5rem;
+    }
+
+    .auth-bar-left {
+        padding: 2rem 1.25rem;
+        min-height: 220px;
+    }
+
+    .auth-bar-left h2 {
+        font-size: 1.5rem;
+    }
+
+    .auth-bar-icon {
+        width: 64px;
+        height: 64px;
+        font-size: 2rem;
+    }
+
+    .auth-bar-right {
+        padding: 2rem 1.25rem;
+    }
+
+    .auth-bar-right h3 {
+        font-size: 1.35rem;
+    }
+
+    .auth-bar-left .aquarium-features {
+        display: none;
+    }
+
+    .auth-form .row {
+        flex-direction: column;
+    }
+
+    .auth-form .col-md-6 {
+        width: 100%;
+    }
+}

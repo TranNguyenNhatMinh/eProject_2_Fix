@@ -1,0 +1,565 @@
+/* ============================================
+   ADMIN PANEL - Modern Redesign & Responsive
+   ============================================ */
+
+:root {
+    --admin-sidebar-width: 260px;
+    --admin-sidebar-bg: linear-gradient(180deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    --admin-sidebar-text: rgba(255, 255, 255, 0.9);
+    --admin-sidebar-text-muted: rgba(255, 255, 255, 0.6);
+    --admin-accent: #0086b3;
+    --admin-accent-hover: #006d91;
+    --admin-card-radius: 12px;
+    --admin-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --admin-card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --admin-border: rgba(0, 0, 0, 0.06);
+    --admin-topbar-height: 56px;
+}
+
+body.admin-page {
+    background: #f1f5f9;
+    font-family: var(--font-family-primary);
+    min-height: 100vh;
+    color: #334155;
+}
+
+/* Overlay for mobile */
+.admin-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    z-index: 1040;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.admin-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* ========== SIDEBAR ========== */
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--admin-sidebar-width);
+    min-height: 100vh;
+    background: var(--admin-sidebar-bg);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.admin-sidebar-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.admin-sidebar-header h4 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-sidebar-header h4 i {
+    font-size: 1.25rem;
+    color: var(--admin-accent);
+}
+
+.admin-sidebar-close {
+    display: none;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.admin-sidebar-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.admin-sidebar .nav {
+    padding: 0.75rem 0;
+    flex: 1;
+}
+
+.admin-sidebar .nav-item {
+    margin: 0;
+}
+
+.admin-sidebar .nav-link {
+    color: var(--admin-sidebar-text-muted);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+}
+
+.admin-sidebar .nav-link i {
+    width: 22px;
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.admin-sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+.admin-sidebar .nav-link.active {
+    background: rgba(0, 134, 179, 0.2);
+    color: white;
+    border-left-color: var(--admin-accent);
+}
+
+.admin-sidebar .nav-item.divider {
+    margin: 0.5rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========== MAIN CONTENT ========== */
+.admin-content {
+    margin-left: var(--admin-sidebar-width);
+    min-height: 100vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease;
+}
+
+.admin-header {
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    box-shadow: var(--admin-card-shadow);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: var(--admin-accent);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.admin-menu-toggle:hover {
+    background: var(--admin-accent-hover);
+    color: white;
+}
+
+.admin-menu-toggle i {
+    font-size: 1.25rem;
+}
+
+.admin-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-header h2 i {
+    color: var(--admin-accent);
+}
+
+/* ========== STAT CARDS ========== */
+.stat-card {
+    background: white;
+    border-radius: var(--admin-card-radius);
+    padding: 1.25rem;
+    box-shadow: var(--admin-card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--admin-border);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--admin-card-shadow-hover);
+}
+
+.stat-card-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    opacity: 0.15;
+}
+
+.stat-card.primary { border-left: 4px solid #3b82f6; }
+.stat-card.primary .stat-card-icon { background: #3b82f6; color: #3b82f6; }
+
+.stat-card.success { border-left: 4px solid #10b981; }
+.stat-card.success .stat-card-icon { background: #10b981; color: #10b981; }
+
+.stat-card.warning { border-left: 4px solid #f59e0b; }
+.stat-card.warning .stat-card-icon { background: #f59e0b; color: #f59e0b; }
+
+.stat-card.danger { border-left: 4px solid #ef4444; }
+.stat-card.danger .stat-card-icon { background: #ef4444; color: #ef4444; }
+
+.stat-card h5 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+/* ========== TABLES ========== */
+.admin-table {
+    background: white;
+    border-radius: var(--admin-card-radius);
+    box-shadow: var(--admin-card-shadow);
+    overflow: hidden;
+    border: 1px solid var(--admin-border);
+}
+
+.admin-table .card-header,
+.admin-table-header {
+    padding: 1rem 1.5rem;
+    background: #f8fafc;
+    border-bottom: 1px solid var(--admin-border);
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-table .table {
+    margin: 0;
+}
+
+.admin-table thead th {
+    background: #f8fafc;
+    border: none;
+    padding: 0.875rem 1rem;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-table tbody td {
+    padding: 0.875rem 1rem;
+    vertical-align: middle;
+    border-top: 1px solid var(--admin-border);
+    font-size: 0.9375rem;
+}
+
+.admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.admin-table .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========== BUTTONS ========== */
+.admin-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    text-decoration: none;
+}
+
+.admin-btn-primary {
+    background: var(--admin-accent);
+    color: white;
+}
+
+.admin-btn-primary:hover {
+    background: var(--admin-accent-hover);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 134, 179, 0.3);
+}
+
+.admin-btn-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.admin-btn-warning:hover {
+    background: #d97706;
+    color: white;
+}
+
+.admin-btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.admin-btn-danger:hover {
+    background: #dc2626;
+    color: white;
+}
+
+.admin-btn-secondary {
+    background: #64748b;
+    color: white;
+}
+
+.admin-btn-secondary:hover {
+    background: #475569;
+    color: white;
+}
+
+.admin-btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+}
+
+/* ========== FORMS ========== */
+.admin-form-card {
+    background: white;
+    border-radius: var(--admin-card-radius);
+    box-shadow: var(--admin-card-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--admin-border);
+}
+
+.admin-form-card .card-header {
+    background: transparent;
+    border: none;
+    padding: 0 0 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--admin-border);
+}
+
+.admin-form-card .card-header h5 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.admin-form-card .form-label {
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+}
+
+.admin-form-card .form-control,
+.admin-form-card .form-select {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9375rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-form-card .form-control:focus,
+.admin-form-card .form-select:focus {
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 3px rgba(0, 134, 179, 0.15);
+    outline: none;
+}
+
+/* ========== BADGES ========== */
+.admin-table .badge,
+.badge {
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+/* ========== EMPTY STATE ========== */
+.admin-empty-state {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: #64748b;
+}
+
+.admin-empty-state i {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.25;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 991.98px) {
+    .admin-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .admin-sidebar.show {
+        transform: translateX(0);
+    }
+
+    .admin-sidebar-close {
+        display: flex;
+    }
+
+    .admin-content {
+        margin-left: 0;
+    }
+
+    .admin-menu-toggle {
+        display: flex;
+    }
+
+    .admin-header {
+        padding: 0.875rem 1rem;
+    }
+
+    .admin-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .stat-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .admin-table thead th,
+    .admin-table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .admin-content {
+        padding: 1rem;
+    }
+
+    .admin-header {
+        margin-bottom: 1rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .stat-card h2 {
+        font-size: 1.375rem;
+    }
+
+    .admin-form-card {
+        padding: 1rem;
+    }
+
+    .admin-btn {
+        font-size: 0.8125rem;
+        padding: 0.45rem 0.75rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    body.admin-page {
+        font-size: 0.9375rem;
+    }
+
+    .admin-content {
+        padding: 0.75rem;
+    }
+
+    .admin-table .card-header,
+    .admin-table-header {
+        padding: 0.75rem 1rem;
+        font-size: 0.9375rem;
+    }
+
+    .admin-table thead th {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.35rem;
+    }
+
+    .admin-table tbody td {
+        padding: 0.5rem 0.35rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* ========== UTILITIES ========== */
+.admin-loading {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0, 134, 179, 0.3);
+    border-top-color: var(--admin-accent);
+    border-radius: 50%;
+    animation: admin-spin 0.7s linear infinite;
+}
+
+@keyframes admin-spin {
+    to { transform: rotate(360deg); }
+}
+

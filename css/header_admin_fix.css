@@ -1,0 +1,80 @@
+/* Fix Admin Hover - Đơn giản như các link khác */
+
+.admin-user-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+}
+
+.admin-username-link {
+    position: relative;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Hover effect đơn giản - chỉ đổi màu và underline như các top-link khác */
+.admin-username-link:hover {
+    color: var(--aqua-color) !important;
+    text-decoration: none;
+}
+
+.admin-username-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--aqua-color);
+    transition: width var(--transition-base);
+    border-radius: 2px;
+}
+
+.admin-username-link:hover::after {
+    width: 100%;
+}
+
+/* Admin badge */
+.admin-badge {
+    font-size: 0.75em;
+    color: var(--aqua-color);
+    font-weight: 600;
+}
+
+/* Admin name text */
+.admin-name-text {
+    font-weight: 600;
+}
+
+/* Admin icon color */
+.admin-username-link .fa-user-shield {
+    color: var(--aqua-color);
+}
+
+.admin-username-link .fa-crown {
+    color: #ffd700;
+}
+
+/* Admin dropdown arrow */
+.admin-user-wrapper .dropdown-toggle[data-bs-toggle="dropdown"] {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all var(--transition-base);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-user-wrapper .dropdown-toggle[data-bs-toggle="dropdown"]:hover {
+    color: var(--aqua-color);
+}

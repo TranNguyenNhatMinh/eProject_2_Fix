@@ -1,0 +1,1290 @@
+/* ============================================
+   HEADER CSS - CHỈ DÀNH CHO HEADER
+   File này CHỈ chứa CSS cho header component
+   KHÔNG chứa CSS cho homepage body hoặc các section khác
+   ============================================ */
+
+/* ============================================
+   1. MAIN HEADER STRUCTURE
+   ============================================ */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #d4e8ff;
+    box-shadow: var(--shadow-header);
+    transition: box-shadow var(--transition-base);
+}
+
+
+/* Ensure top-links-bar and its dropdowns are above main navigation */
+.top-links-bar {
+    position: relative;
+    z-index: 1001;
+}
+
+.main-header:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Site-specific colors */
+.main-header.site-aquarium { background-color: #d4e8ff; }
+.main-header.site-sweet-shop { background-color: #ffe6f0; }
+.main-header.site-boardwalk { background-color: #fff8e6; }
+
+/* ============================================
+   2. TOP LINKS BAR
+   ============================================ */
+.top-links-bar {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #d4e8ff;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+}
+
+.site-aquarium .top-links-bar { background-color: #d4e8ff; }
+.site-sweet-shop .top-links-bar { background-color: #ffe6f0; }
+.site-boardwalk .top-links-bar { background-color: #fff8e6; }
+
+.top-links-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 134, 179, 0.2), transparent);
+}
+
+.top-bar-content {
+    padding: 0.3rem 0;
+    gap: 0.6rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.top-bar-content.py-2 {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+/* ============================================
+   3. TOP NAVIGATION LINKS
+   ============================================ */
+.top-links-nav {
+    display: flex;
+    gap: 1rem !important;
+    margin-right: auto;
+    margin-left: 0;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0;
+}
+
+/* Override Bootstrap gap classes */
+.top-links-nav.gap-3 {
+    gap: 1rem !important;
+}
+
+.top-link {
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    transition: color var(--transition-base), background-color var(--transition-base);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.top-links-nav .top-link {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    margin: 0;
+    line-height: 1.5;
+    min-height: 2rem;
+    box-sizing: border-box;
+    text-align: left;
+    width: auto;
+}
+
+.top-links-nav .top-link:hover {
+    background-color: rgba(0, 134, 179, 0.05);
+    text-decoration: none;
+}
+
+.top-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--aqua-color);
+    transition: width var(--transition-base);
+    border-radius: 2px;
+    transform: none;
+}
+
+.top-link:hover::after { 
+    width: 100%;
+}
+
+.top-link:hover { text-decoration: none; }
+
+/* Active link colors */
+.top-link.text-aqua { color: var(--aqua-color); }
+.top-link.text-pink { color: var(--sweet-shop-red); }
+.top-link.text-boardwalk { color: var(--boardwalk-yellow); }
+
+.top-link.text-aqua:hover { color: var(--aqua-color); }
+.top-link.text-pink:hover { color: var(--sweet-shop-red); }
+.top-link.text-boardwalk:hover { color: var(--boardwalk-yellow); }
+
+/* Active link underline */
+.top-link.text-aqua::after,
+.top-link.text-pink::after,
+.top-link.text-boardwalk::after {
+    width: 100%;
+    opacity: 1;
+    background: currentColor;
+    left: 0;
+    transform: none;
+}
+
+.top-link:focus-visible {
+    outline: 2px solid var(--aqua-color);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   4. SOCIAL LINKS & ICONS
+   ============================================ */
+.social-links {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.social-links .top-link {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--transition-base);
+}
+
+.social-links .top-link:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.1);
+}
+
+.social-links .top-link i {
+    font-size: 1rem;
+    transition: color var(--transition-base);
+}
+
+.social-links .fa-facebook-f { color: var(--facebook-color); }
+.social-links .fa-instagram { color: var(--instagram-color); }
+.social-links .fa-x-twitter { color: var(--twitter-color); }
+.social-links .fa-youtube { color: var(--youtube-color); }
+
+.social-links .top-link:first-of-type:hover { background-color: rgba(24, 119, 242, 0.1); }
+.social-links .top-link:nth-of-type(2):hover { background-color: rgba(228, 64, 95, 0.1); }
+.social-links .top-link:nth-of-type(3):hover { background-color: rgba(29, 161, 242, 0.1); }
+.social-links .top-link:last-of-type:hover { background-color: rgba(255, 0, 0, 0.1); }
+
+/* Calendar & Language Icons */
+.calendar-icon,
+.lang-icon {
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+}
+
+.calendar-icon i {
+    font-size: 0.9rem;
+    transition: transform var(--transition-base);
+}
+
+.top-link:hover .calendar-icon i { transform: rotate(5deg); }
+.top-link:hover i { transform: scale(1.15) translateY(-1px); }
+
+/* ============================================
+   5. SEARCH BUTTON
+   ============================================ */
+.search-btn {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all var(--transition-bezier);
+    position: relative;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.search-btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color var(--transition-base);
+}
+
+.search-btn:hover {
+    color: var(--aqua-color);
+    background-color: rgba(0, 134, 179, 0.1);
+    transform: scale(1.1);
+}
+
+.search-btn:active { transform: scale(0.95); }
+.search-btn:focus-visible {
+    outline: 2px solid var(--aqua-color);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   6. HEADER MAIN CONTENT
+   ============================================ */
+.main-header-content {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #d4e8ff;
+    position: relative;
+    z-index: 0;
+}
+
+.site-aquarium .main-header-content { background-color: #d4e8ff; }
+.site-sweet-shop .main-header-content { background-color: #ffe6f0; }
+.site-boardwalk .main-header-content { background-color: #fff8e6; }
+
+.header-main-row {
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 0;
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 0;
+}
+
+.header-main-row.py-3 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* ============================================
+   7. LOGO SECTION
+   ============================================ */
+.logo-section {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.aquarium-logo-wrapper {
+    max-width: 250px;
+    width: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    transition: transform var(--transition-bezier);
+}
+
+.site-aquarium .aquarium-logo-wrapper {
+    max-width: 280px;
+    width: 280px;
+}
+
+.aquarium-logo-wrapper:hover { transform: scale(1.02); }
+
+.aquarium-logo-img {
+    max-width: 100%;
+    max-height: 50px;
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: filter var(--transition-base);
+}
+
+.site-aquarium .aquarium-logo-img {
+    max-height: 55px;
+    height: 55px;
+}
+
+.aquarium-logo-wrapper:hover .aquarium-logo-img { filter: brightness(1.05); }
+
+/* ============================================
+   8. MAIN NAVIGATION MENU
+   ============================================ */
+.main-navigation {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+}
+
+.main-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-menu .nav-link {
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    transition: all var(--transition-bezier);
+    padding: 0.6rem var(--spacing-sm);
+    border-radius: var(--radius-md);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    text-decoration: none;
+}
+
+.main-menu .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--aqua-color);
+    transition: width var(--transition-base);
+}
+
+.main-menu .nav-link:hover {
+    color: var(--aqua-color);
+    background-color: rgba(0, 134, 179, 0.05);
+    transform: translateY(-2px);
+}
+
+.main-menu .nav-link:hover::before { width: calc(100% - 2rem); }
+.main-menu .nav-link:focus-visible {
+    outline: 2px solid var(--aqua-color);
+    outline-offset: 2px;
+}
+
+.menu-caret {
+    font-size: 0.65rem;
+    margin-left: 2px;
+    vertical-align: middle;
+    transition: transform var(--transition-bezier);
+    display: inline-block;
+}
+
+.main-menu .nav-link:hover .menu-caret { transform: translateY(3px); }
+
+.main-menu .nav-link i {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: opacity var(--transition-base);
+}
+
+.main-menu .nav-link:hover i { opacity: 1; }
+
+/* ============================================
+   9. DROPDOWN MENUS
+   ============================================ */
+.dropdown-hover {
+    position: static;
+}
+
+.dropdown-hover .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    padding: 0.5rem 0;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-top: 0;
+    z-index: 1000;
+    list-style: none;
+}
+
+.dropdown-hover:hover .dropdown-menu,
+.dropdown-hover .dropdown-menu:hover {
+    display: block;
+    animation: fadeInDown 0.3s ease;
+}
+
+.dropdown-hover .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: transparent;
+}
+
+.dropdown-hover:hover > .nav-link { color: var(--aqua-color); }
+
+.visit-mega-menu .dropdown-item {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    transition: all var(--transition-base);
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.visit-mega-menu .dropdown-item:last-child { border-bottom: none; }
+
+.visit-mega-menu .dropdown-item:hover {
+    background-color: rgba(0, 134, 179, 0.05);
+    color: var(--aqua-color);
+    padding-left: 2rem;
+}
+
+/* Submenu */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 0.5rem;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    padding: 0.5rem 0;
+    list-style: none;
+    z-index: 1001;
+}
+
+.dropdown-submenu:hover > .dropdown-menu.submenu,
+.dropdown-submenu > .dropdown-menu.submenu:hover {
+    display: block;
+    animation: fadeInRight 0.3s ease;
+}
+
+.visit-mega-menu .dropdown-submenu > .dropdown-item {
+    position: relative;
+    padding-right: 2.5rem;
+}
+
+.visit-mega-menu .dropdown-submenu > .dropdown-item .join-team-arrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    color: var(--aqua-color);
+    transition: transform var(--transition-base);
+    opacity: 0.7;
+}
+
+.visit-mega-menu .dropdown-submenu:hover > .dropdown-item .join-team-arrow {
+    transform: translateY(-50%) translateX(4px);
+    opacity: 1;
+}
+
+.dropdown-submenu > .dropdown-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 20px;
+    height: 100%;
+    background: transparent;
+    z-index: 1000;
+}
+
+.dropdown-submenu > .dropdown-item:hover {
+    background-color: rgba(0, 134, 179, 0.1);
+    color: var(--aqua-color);
+}
+
+.submenu .dropdown-item {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+}
+
+.submenu .dropdown-item:hover {
+    background-color: rgba(0, 134, 179, 0.05);
+    color: var(--aqua-color);
+    padding-left: 2rem;
+}
+
+/* ============================================
+   SWEET SHOP – hover/active màu hồng thay vì xanh
+   ============================================ */
+.main-header.site-sweet-shop .main-menu .nav-link::before {
+    background-color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .main-menu .nav-link:hover {
+    color: var(--pink-color);
+    background-color: rgba(232, 71, 123, 0.08);
+}
+
+.main-header.site-sweet-shop .main-menu .nav-link:focus-visible {
+    outline: 2px solid var(--pink-color);
+    outline-offset: 2px;
+}
+
+.main-header.site-sweet-shop .dropdown-hover:hover > .nav-link {
+    color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .visit-mega-menu .dropdown-item:hover {
+    background-color: rgba(232, 71, 123, 0.06);
+    color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .visit-mega-menu .dropdown-submenu > .dropdown-item .join-team-arrow {
+    color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .dropdown-submenu > .dropdown-item:hover {
+    background-color: rgba(232, 71, 123, 0.08);
+    color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .submenu .dropdown-item:hover {
+    background-color: rgba(232, 71, 123, 0.06);
+    color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .search-btn:hover {
+    color: var(--pink-color);
+    background-color: rgba(232, 71, 123, 0.1);
+}
+
+.main-header.site-sweet-shop .search-btn:focus-visible {
+    outline: 2px solid var(--pink-color);
+}
+
+.main-header.site-sweet-shop .navbar-toggler:hover {
+    border-color: var(--pink-color);
+    background-color: rgba(232, 71, 123, 0.08);
+}
+
+.main-header.site-sweet-shop .navbar-toggler:focus-visible {
+    outline: 2px solid var(--pink-color);
+}
+
+/* Sweet Shop – top bar: hover và underline màu hồng */
+.main-header.site-sweet-shop .top-link::after {
+    background-color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .top-link:hover {
+    color: var(--pink-color);
+}
+
+.main-header.site-sweet-shop .top-links-nav .top-link:hover {
+    background-color: rgba(232, 71, 123, 0.08);
+}
+
+.main-header.site-sweet-shop .top-link:focus-visible {
+    outline: 2px solid var(--pink-color);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   BOARDWALK – hover/active màu vàng (giống Sweet Shop nhưng tông boardwalk)
+   ============================================ */
+/* Menu chính (EXPLORE, EVENTS...): format giống Sweet Shop – nhẹ, chỉ underline + màu chữ */
+.main-header.site-boardwalk .main-menu .nav-link::before {
+    background-color: var(--boardwalk-yellow);
+}
+
+.main-header.site-boardwalk .main-menu .nav-link:hover {
+    color: #b38600;
+    background-color: rgba(255, 215, 0, 0.08);
+}
+
+.main-header.site-boardwalk .main-menu .nav-link:focus-visible {
+    outline: 2px solid var(--boardwalk-yellow);
+    outline-offset: 2px;
+}
+
+.main-header.site-boardwalk .dropdown-hover:hover > .nav-link {
+    color: #b38600;
+}
+
+.main-header.site-boardwalk .visit-mega-menu .dropdown-item:hover {
+    background-color: rgba(255, 215, 0, 0.06);
+    color: #b38600;
+}
+
+.main-header.site-boardwalk .visit-mega-menu .dropdown-submenu > .dropdown-item .join-team-arrow {
+    color: #b38600;
+}
+
+.main-header.site-boardwalk .dropdown-submenu > .dropdown-item:hover {
+    background-color: rgba(255, 215, 0, 0.08);
+    color: #b38600;
+}
+
+.main-header.site-boardwalk .submenu .dropdown-item:hover {
+    background-color: rgba(255, 215, 0, 0.06);
+    color: #b38600;
+}
+
+.main-header.site-boardwalk .search-btn:hover {
+    color: #b38600;
+    background-color: rgba(255, 215, 0, 0.08);
+}
+
+.main-header.site-boardwalk .search-btn:focus-visible {
+    outline: 2px solid var(--boardwalk-yellow);
+}
+
+.main-header.site-boardwalk .navbar-toggler:hover {
+    border-color: #b38600;
+    background-color: rgba(255, 215, 0, 0.08);
+}
+
+.main-header.site-boardwalk .navbar-toggler:focus-visible {
+    outline: 2px solid var(--boardwalk-yellow);
+}
+
+.main-header.site-boardwalk .top-links-bar::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.35), transparent);
+}
+
+/* Thanh gạch dưới link: vàng khi hover (cùng kiểu aquarium = xanh, sweet-shop = hồng) */
+.main-header.site-boardwalk .top-links-nav .top-link::after,
+.main-header.site-boardwalk .top-link::after {
+    background-color: var(--boardwalk-yellow);
+}
+
+.main-header.site-boardwalk .top-link:hover::after {
+    width: 100%;
+}
+
+.main-header.site-boardwalk .top-links-nav .top-link:hover,
+.main-header.site-boardwalk .top-link:hover {
+    color: #b38600;
+    background-color: rgba(255, 215, 0, 0.08);
+}
+
+.main-header.site-boardwalk .top-link:focus-visible {
+    outline: 2px solid var(--boardwalk-yellow);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   10. NAVBAR TOGGLER (Mobile Menu)
+   ============================================ */
+.navbar-toggler {
+    display: none;
+    border: 2px solid var(--text-muted);
+    padding: var(--spacing-sm) 0.75rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.navbar-toggler:hover {
+    border-color: var(--aqua-color);
+    background-color: rgba(0, 134, 179, 0.05);
+}
+
+.navbar-toggler-icon {
+    color: var(--text-dark);
+    font-size: 1.25rem;
+}
+
+.navbar-toggler:focus-visible {
+    outline: 2px solid var(--aqua-color);
+    outline-offset: 2px;
+}
+
+.navbar-collapse {
+    display: none;
+}
+
+.navbar-collapse.show {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================
+   11. ANIMATIONS
+   ============================================ */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes underlineSlide {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   12. DESKTOP STYLES (≥992px)
+   ============================================ */
+@media (min-width: 992px) {
+    .dropdown-hover { position: relative; }
+    
+    .header-main-row .container { position: relative; }
+    
+    .main-navigation {
+        padding-right: 0;
+        margin-right: 0;
+    }
+    
+    .main-menu {
+        margin-right: 0;
+        padding-right: 0;
+    }
+    
+    .main-navigation .navbar-collapse {
+        display: flex;
+        padding-right: 0;
+        margin-right: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .main-menu .nav-item:last-child .nav-link {
+        margin-right: 0;
+        padding-right: 0;
+    }
+    
+    .main-menu .nav-link { padding: 0.5rem 0.75rem; }
+    
+    #mainMenuCollapse {
+        display: flex;
+        flex-basis: auto;
+        height: auto;
+        visibility: visible;
+    }
+    
+    .navbar-toggler { display: none; }
+    
+    .main-navigation .collapse:not(.show) { display: flex; }
+}
+
+/* ============================================
+   13. MOBILE/TABLET STYLES (<992px)
+   ============================================ */
+@media (max-width: 991.98px) {
+    .header-main-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 0;
+    }
+    
+    .logo-section {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .aquarium-logo-wrapper {
+        margin: 0 auto;
+    }
+    
+    .main-navigation {
+        width: 100%;
+        margin-top: 0.5rem;
+        justify-content: center;
+    }
+    
+    .navbar-toggler {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.5rem;
+        padding: 0;
+        background-color: transparent;
+        border: 2px solid var(--aqua-color);
+        border-radius: var(--radius-md);
+        color: var(--aqua-color);
+    }
+    
+    .navbar-toggler:hover,
+    .navbar-toggler:focus {
+        background-color: var(--aqua-color);
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 134, 179, 0.3);
+    }
+    
+    .navbar-toggler-icon {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: inherit;
+    }
+    
+    .navbar-collapse {
+        background-color: #f8f9fa;
+        border-radius: var(--radius-lg);
+        padding: 1rem;
+        margin-top: 0.5rem;
+        box-shadow: var(--shadow-md);
+        width: 100%;
+    }
+    
+    .navbar-collapse.show {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .main-menu .nav-link {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        text-align: left;
+    }
+    
+    .main-menu .nav-link::before { display: none; }
+    
+    .main-menu .nav-link:hover {
+        transform: translateX(5px);
+        background-color: rgba(0, 134, 179, 0.1);
+    }
+    
+    .dropdown-hover .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        margin-top: 0;
+        padding-left: 1rem;
+    }
+    
+    .dropdown-submenu > .dropdown-menu.submenu {
+        position: static;
+        margin-left: 1rem;
+        box-shadow: none;
+        border-left: 2px solid var(--aqua-color);
+        padding-left: 1rem;
+    }
+    
+    .main-header.site-sweet-shop .main-menu .nav-link:hover {
+        background-color: rgba(232, 71, 123, 0.1);
+    }
+    
+    .main-header.site-sweet-shop .dropdown-submenu > .dropdown-menu.submenu {
+        border-left-color: var(--pink-color);
+    }
+    
+    .main-header.site-boardwalk .main-menu .nav-link:hover {
+        background-color: rgba(255, 215, 0, 0.08);
+    }
+    
+    .main-header.site-boardwalk .dropdown-submenu > .dropdown-menu.submenu {
+        border-left-color: var(--boardwalk-yellow);
+    }
+    
+    .main-header.site-sweet-shop .navbar-toggler:hover,
+    .main-header.site-sweet-shop .navbar-toggler:focus {
+        background-color: var(--pink-color);
+        border-color: var(--pink-color);
+        color: #ffffff;
+        box-shadow: 0 4px 12px rgba(232, 71, 123, 0.35);
+    }
+
+    .main-header.site-boardwalk .navbar-toggler:hover,
+    .main-header.site-boardwalk .navbar-toggler:focus {
+        background-color: var(--boardwalk-yellow);
+        border-color: var(--boardwalk-yellow);
+        color: #1a1a1a;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    }
+}
+
+/* ============================================
+   14. CONTAINER PADDING - ĐỒNG NHẤT CHO TẤT CẢ TRANG
+   ============================================ */
+.main-header .container,
+.main-header .top-links-bar .container,
+.main-header .main-header-content .container,
+.main-header .header-main-row .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 1320px !important;
+}
+
+/* ============================================
+   15. HEADER-MAIN-ROW LAYOUT
+   ============================================ */
+.main-header .header-main-row {
+    min-height: 0 !important;
+    align-items: center !important;
+    padding: 0.5rem 0 !important;
+    gap: 1.5rem !important;
+    justify-content: space-between !important;
+    display: flex !important;
+    flex-direction: row !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   16. USER ACCOUNT SECTION - Clean & Reasonable Design
+   ============================================ */
+
+/* User Account Dropdown Container */
+.user-account-dropdown {
+    position: relative;
+}
+
+.user-account-toggle {
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text-dark);
+}
+
+.user-account-toggle:hover {
+    background-color: rgba(0, 134, 179, 0.08);
+    color: var(--aqua-color);
+}
+
+/* User Avatar Wrapper */
+.user-avatar-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--aqua-color), #0086b3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.admin-badge-small {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffd700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 0.6rem;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.user-name-text {
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.dropdown-arrow {
+    font-size: 0.65rem;
+    transition: transform 0.2s ease;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 0.25rem;
+}
+
+.user-account-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+    color: var(--aqua-color);
+}
+
+/* User Dropdown Menu */
+.user-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    min-width: 260px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    z-index: 1000;
+    overflow: hidden;
+    padding: 0.5rem 0;
+}
+
+.user-account-dropdown:hover .user-dropdown-menu {
+    display: block;
+    animation: fadeInDown 0.2s ease;
+}
+
+/* User Dropdown Header */
+.user-dropdown-header {
+    padding: 1rem 1.25rem;
+    background: rgba(0, 134, 179, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-header-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--aqua-color), #0086b3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.user-header-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-header-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-header-email {
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-header-badge {
+    display: inline-block;
+    margin-top: 0.3rem;
+    padding: 0.15rem 0.5rem;
+    background: rgba(0, 134, 179, 0.1);
+    color: var(--aqua-color);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Dropdown Divider */
+.user-dropdown-menu .dropdown-divider {
+    margin: 0.5rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    height: 0;
+}
+
+/* Dropdown Items */
+.user-dropdown-menu .dropdown-item {
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: background-color 0.15s ease;
+    font-size: 0.9rem;
+}
+
+.user-dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0, 134, 179, 0.06);
+    color: var(--aqua-color);
+}
+
+.user-dropdown-menu .dropdown-item .item-icon {
+    width: 20px;
+    text-align: center;
+    color: var(--aqua-color);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.user-dropdown-menu .dropdown-item:hover .item-icon {
+    color: var(--aqua-color);
+}
+
+.item-text {
+    flex: 1;
+    font-weight: 500;
+}
+
+.item-badge {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.4rem;
+    background: rgba(0, 134, 179, 0.1);
+    color: var(--aqua-color);
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Admin Item */
+.user-dropdown-menu .admin-item {
+    background-color: rgba(0, 134, 179, 0.04);
+    font-weight: 600;
+}
+
+.user-dropdown-menu .admin-item:hover {
+    background-color: rgba(0, 134, 179, 0.1);
+}
+
+/* Logout Item */
+.user-dropdown-menu .logout-item {
+    color: #dc3545;
+}
+
+.user-dropdown-menu .logout-item:hover {
+    background-color: rgba(220, 53, 69, 0.08);
+    color: #dc3545;
+}
+
+.user-dropdown-menu .logout-item .item-icon {
+    color: #dc3545;
+}
+
+.user-dropdown-menu .logout-item:hover .item-icon {
+    color: #dc3545;
+}
+
+/* Login Link */
+.login-link {
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--aqua-color);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.login-link:hover {
+    background: #0086b3;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 134, 179, 0.2);
+}
+
+.login-link i {
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .user-name-text {
+        display: none;
+    }
+    
+    .user-dropdown-menu {
+        min-width: 240px;
+    }
+}

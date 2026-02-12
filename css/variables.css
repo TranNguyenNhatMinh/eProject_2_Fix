@@ -1,0 +1,150 @@
+/* ============================================
+   CSS VARIABLES - DESIGN TOKENS
+   Professional Front-End Design System
+   File này chứa tất cả CSS variables (design tokens) cho toàn bộ website
+   ============================================ */
+
+:root {
+    /* ============================================
+       1. TYPOGRAPHY
+       ============================================ */
+    /* Font Families */
+    --font-family-primary: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-family-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    
+    /* Font Sizes - Fluid Typography Scale */
+    --font-size-xs: 0.75rem;      /* 12px */
+    --font-size-sm: 0.875rem;     /* 14px */
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-lg: 1.125rem;     /* 18px */
+    --font-size-xl: 1.25rem;      /* 20px */
+    --font-size-2xl: 1.5rem;      /* 24px */
+    --font-size-3xl: 1.875rem;    /* 30px */
+    --font-size-4xl: 2.25rem;     /* 36px */
+    --font-size-5xl: 3rem;        /* 48px */
+    --font-size-6xl: 3.75rem;     /* 60px */
+    
+    /* Line Heights */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    --line-height-loose: 2;
+    
+    /* Letter Spacing */
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
+    --letter-spacing-widest: 0.1em;
+    
+    /* ============================================
+       2. COLORS
+       ============================================ */
+    /* Primary Colors - Enhanced Palette */
+    --primary-color: #004b8d;
+    --primary-dark: #003366;
+    --primary-light: #0066cc;
+    --secondary-color: #0086b3;
+    --secondary-dark: #006b8f;
+    --secondary-light: #00a3d9;
+    --accent-color: #6bb4b3;
+    
+    /* Text Colors - Improved Contrast */
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-muted: #6c757d;
+    --text-light: #999999;
+    --text-white: #ffffff;
+    --text-dark: #1a1a1a;
+    
+    /* Brand Colors */
+    --aqua-color: #0086b3;
+    --aqua-dark: #006b8f;
+    --aqua-light: #00a3d9;
+    --pink-color: #e8477b;
+    --sweet-shop-red: #dc3545;
+    --boardwalk-yellow: #FFD700;
+    
+    /* Background Colors */
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-lighter: #fafbfc;
+    --bg-dark: #1a1a1a;
+    
+    /* Social Media Colors */
+    --facebook-color: #1877F2;
+    --instagram-color: #E4405F;
+    --twitter-color: #1DA1F2;
+    --youtube-color: #FF0000;
+    
+    /* ============================================
+       3. SPACING SCALE - 8px base unit
+       ============================================ */
+    --spacing-xs: 0.25rem;    /* 4px */
+    --spacing-sm: 0.5rem;      /* 8px */
+    --spacing-md: 1rem;        /* 16px */
+    --spacing-lg: 1.5rem;      /* 24px */
+    --spacing-xl: 2rem;        /* 32px */
+    --spacing-2xl: 3rem;       /* 48px */
+    --spacing-3xl: 4rem;        /* 64px */
+    --spacing-4xl: 5rem;        /* 80px */
+    
+    /* ============================================
+       4. TRANSITIONS - Professional Timing
+       ============================================ */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bezier: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* ============================================
+       5. SHADOWS - Professional Depth System
+       ============================================ */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    --shadow-header: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-colored: 0 10px 30px rgba(0, 134, 179, 0.2);
+    
+    /* ============================================
+       6. BORDER RADIUS - Consistent Curves
+       ============================================ */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-full: 9999px;
+    
+    /* ============================================
+       7. GRADIENTS - Professional Color Blends
+       ============================================ */
+    --gradient-primary: linear-gradient(135deg, #004e92 0%, #0086b3 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(0, 78, 146, 0.4) 0%, rgba(0, 4, 40, 0.5) 100%);
+    --gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+    
+    /* ============================================
+       8. Z-INDEX SCALE
+       ============================================ */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}

@@ -1,0 +1,283 @@
+/* ============================================
+   OUR MISSION PAGE CSS
+   File này chứa CSS cho trang ourmission.php
+   ============================================ */
+
+/* ============================================
+   1. HERO SECTION - MISSION PAGE
+   ============================================ */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    max-height: 600px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-section h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--font-weight-extrabold);
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+    font-family: var(--font-family-heading);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+/* ============================================
+   2. CONTENT SECTION
+   ============================================ */
+.content-section {
+    padding: 2rem 0;
+}
+
+.content-section .lead {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.content-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.content-section h3 {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-family-heading);
+    letter-spacing: -0.01em;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.content-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--aqua-color), var(--aqua-light));
+    border-radius: var(--radius-full);
+}
+
+.content-section h3:first-of-type {
+    margin-top: 0;
+}
+
+.content-section h4 {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--aqua-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-family-heading);
+}
+
+.content-section h4:first-of-type {
+    margin-top: 0;
+}
+
+/* ============================================
+   3. ALERT BOX - ACCREDITATION
+   ============================================ */
+.content-section .alert {
+    border-radius: var(--radius-lg);
+    border: none;
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.content-section .alert-info {
+    background: linear-gradient(135deg, rgba(0, 134, 179, 0.1) 0%, rgba(0, 163, 217, 0.05) 100%);
+    border-left: 4px solid var(--aqua-color);
+}
+
+.content-section .alert-heading {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--aqua-color);
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.content-section .alert-heading i {
+    font-size: 1.5rem;
+}
+
+.content-section .alert p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.content-section .alert strong {
+    color: var(--aqua-dark);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   4. RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 991.98px) {
+    .hero-section {
+        min-height: 350px;
+        max-height: 500px;
+    }
+    
+    .hero-section img {
+        min-height: 350px;
+        max-height: 500px;
+    }
+    
+    .hero-section h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    
+    .content-section h3 {
+        font-size: 1.75rem;
+    }
+    
+    .content-section h4 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section {
+        min-height: 300px;
+        max-height: 400px;
+    }
+    
+    .hero-section img {
+        min-height: 300px;
+        max-height: 400px;
+    }
+    
+    .hero-section h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+        padding: 0 1.5rem;
+    }
+    
+    .content-section {
+        padding: 1.5rem 0;
+    }
+    
+    .content-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .content-section h3 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .content-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .content-section .alert {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        min-height: 250px;
+        max-height: 350px;
+    }
+    
+    .hero-section img {
+        min-height: 250px;
+        max-height: 350px;
+    }
+    
+    .hero-section h1 {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        padding: 0 1rem;
+    }
+    
+    .content-section {
+        padding: 1rem 0;
+    }
+    
+    .content-section .lead {
+        font-size: 1rem;
+    }
+    
+    .content-section p {
+        font-size: 0.95rem;
+    }
+    
+    .content-section h3 {
+        font-size: 1.35rem;
+    }
+    
+    .content-section h4 {
+        font-size: 1rem;
+    }
+    
+    .content-section .alert {
+        padding: 1.25rem;
+    }
+    
+    .content-section .alert-heading {
+        font-size: 1.1rem;
+    }
+}

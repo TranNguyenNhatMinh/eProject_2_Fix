@@ -1,0 +1,292 @@
+/* ============================================
+   BOARDWALK PAGE - Body (hero, intro, discover more)
+   Cùng format hero với Aquarium & Sweet Shop
+   ============================================ */
+
+/* Hero Banner - giống homepage & sweet-shop (80vh, overlay, content) */
+.boardwalk-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    max-height: 900px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #c9a227 0%, #fff8e6 100%);
+}
+
+.boardwalk-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.boardwalk-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+    animation: fadeInScale 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Overlay giống Aquarium: 135deg, 2 stop */
+.boardwalk-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.45) 0%, rgba(0, 4, 40, 0.6) 100%);
+    z-index: 2;
+}
+
+.boardwalk-hero-banner .container {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.boardwalk-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: #ffffff;
+    animation: boardwalkFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes boardwalkFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.boardwalk-hero-subtitle {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boardwalk-subtitle-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-family-heading);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.boardwalk-subtitle-underline {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(255, 248, 230, 0.9), transparent);
+    margin: 0 auto;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+.boardwalk-hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+    font-family: var(--font-family-heading);
+    color: #ffffff;
+}
+
+.boardwalk-hero-accent {
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.boardwalk-hero-accent:hover {
+    color: #ffe44d;
+    transform: scale(1.02);
+}
+
+/* Nút CTA giống Aquarium: shine ::before, arrow ::after */
+.boardwalk-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-family-heading);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.boardwalk-btn-cta {
+    background: linear-gradient(135deg, #e6c200 0%, #ffd700 100%);
+    color: #1a1a1a;
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.35);
+}
+
+.boardwalk-btn-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.boardwalk-btn-cta::after {
+    content: '→';
+    font-size: 1.25rem;
+    transition: transform 0.4s ease;
+    display: inline-block;
+}
+
+.boardwalk-btn-cta:hover {
+    background: linear-gradient(135deg, #ccac00 0%, #e6c200 100%);
+    color: #1a1a1a;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.boardwalk-btn-cta:hover::before {
+    left: 100%;
+}
+
+.boardwalk-btn-cta:hover::after {
+    transform: translateX(5px);
+}
+
+.boardwalk-btn-cta:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+/* Intro */
+.boardwalk-intro {
+    padding: 2.5rem 0;
+    background: #fff;
+}
+
+.boardwalk-intro-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #333;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: var(--font-family-primary);
+}
+
+/* Discover More */
+.boardwalk-discover {
+    padding: 0 0 4rem;
+    background: #f8f9fa;
+}
+
+.boardwalk-discover-heading {
+    font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+    font-weight: 800;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-family: var(--font-family-heading);
+}
+
+.boardwalk-discover-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.boardwalk-discover-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boardwalk-discover-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.boardwalk-discover-img-wrap {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #eee;
+}
+
+.boardwalk-discover-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.boardwalk-discover-card:hover .boardwalk-discover-img-wrap img {
+    transform: scale(1.06);
+}
+
+.boardwalk-discover-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 1rem 1rem 1.25rem;
+    margin: 0;
+    font-family: var(--font-family-heading);
+}
+
+@media (max-width: 991.98px) {
+    .boardwalk-discover-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .boardwalk-hero-banner {
+        height: 60vh;
+        min-height: 380px;
+    }
+
+    .boardwalk-discover-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .boardwalk-discover-title {
+        font-size: 0.9rem;
+        padding: 0.875rem 1rem;
+    }
+}

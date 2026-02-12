@@ -1,0 +1,67 @@
+/* ============================================
+   HERO CSS - COMPONENT CHUNG CHO HERO SECTIONS
+   File này chứa CSS cho hero-section component
+   KHÔNG phải homepage-specific
+   ============================================ */
+
+/* ============================================
+   1. HERO SECTION STRUCTURE
+   ============================================ */
+.hero-section {
+    background: linear-gradient(135deg, #004e92 0%, #000428 100%);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+    background-size: cover;
+    opacity: 0.3;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   2. HERO SECTION TYPOGRAPHY
+   ============================================ */
+.hero-section h1 {
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   3. HERO SECTION BUTTONS
+   ============================================ */
+.hero-section .btn {
+    border-radius: var(--radius-full);
+    padding: 12px 40px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
