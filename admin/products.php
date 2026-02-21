@@ -28,8 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $product_name)));
         }
         
+        $sale_price_val = ($sale_price !== null) ? floatval($sale_price) : 0;
         $stmt = $conn->prepare("INSERT INTO products (category_id, product_name, slug, description, short_description, price, sale_price, stock_quantity, sku, image, status, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isssssdississ", $category_id, $product_name, $slug, $description, $short_description, $price, $sale_price, $stock_quantity, $sku, $image, $status, $featured);
+        $stmt->bind_param("issssddisssi", $category_id, $product_name, $slug, $description, $short_description, $price, $sale_price_val, $stock_quantity, $sku, $image, $status, $featured);
         
         if ($stmt->execute()) {
             header('Location: products.php?success=1');
@@ -51,8 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $status = sanitize($_POST['status'] ?? 'active');
         $featured = isset($_POST['featured']) ? 1 : 0;
         
+        $sale_price_val = ($sale_price !== null) ? floatval($sale_price) : 0;
         $stmt = $conn->prepare("UPDATE products SET category_id = ?, product_name = ?, slug = ?, description = ?, short_description = ?, price = ?, sale_price = ?, stock_quantity = ?, sku = ?, image = ?, status = ?, featured = ? WHERE product_id = ?");
-        $stmt->bind_param("isssssdississi", $category_id, $product_name, $slug, $description, $short_description, $price, $sale_price, $stock_quantity, $sku, $image, $status, $featured, $product_id);
+        $stmt->bind_param("issssddisssii", $category_id, $product_name, $slug, $description, $short_description, $price, $sale_price_val, $stock_quantity, $sku, $image, $status, $featured, $product_id);
         
         if ($stmt->execute()) {
             header('Location: products.php?success=1');
@@ -107,10 +109,13 @@ if (isset($_GET['edit'])) {
                 </div>
                 
                 <?php if (isset($_GET['success'])): ?>
-                    <div class="alert alert-success">Action completed successfully!</div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fa-solid fa-check-circle me-2"></i>Action completed successfully!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php endif; ?>
                 
-                <!-- Form thêm/sửa -->
+                <!-- Add/Edit Product Form -->
                 <div class="admin-form-card mb-4">
                     <div class="card-header">
                         <h5><i class="fa-solid fa-<?php echo $edit_product ? 'edit' : 'plus'; ?> me-2"></i><?php echo $edit_product ? 'Edit Product' : 'Add New Product'; ?></h5>
@@ -216,10 +221,8 @@ if (isset($_GET['edit'])) {
                 
                 <!-- Product list -->
                 <div class="admin-table">
-                    <div class="card-header" style="padding: 1.5rem; background: white; border-bottom: 2px solid #f0f0f0;">
-                        <h5 style="margin: 0; font-weight: 700; color: #1e3a5f;">
-                            <i class="fa-solid fa-list me-2"></i>Product List
-                        </h5>
+                    <div class="admin-table-header">
+                        <i class="fa-solid fa-list"></i> Product List
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -254,15 +257,17 @@ if (isset($_GET['edit'])) {
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="?edit=<?php echo $product['product_id']; ?>" class="admin-btn admin-btn-warning admin-btn-sm">
-                                                    <i class="fa-solid fa-edit me-1"></i>Edit
-                                                </a>
-                                                <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete?');">
-                                                    <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
-                                                    <button type="submit" name="delete_product" class="admin-btn admin-btn-danger admin-btn-sm ms-1">
-                                                        <i class="fa-solid fa-trash me-1"></i>Delete
-                                                    </button>
-                                                </form>
+                                                <div class="d-flex gap-2">
+                                                    <a href="?edit=<?php echo $product['product_id']; ?>" class="admin-btn admin-btn-warning admin-btn-sm" title="Edit Product">
+                                                        <i class="fa-solid fa-edit"></i> <span>Edit</span>
+                                                    </a>
+                                                    <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete?');">
+                                                        <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                                                        <button type="submit" name="delete_product" class="admin-btn admin-btn-danger admin-btn-sm" title="Delete Product">
+                                                            <i class="fa-solid fa-trash"></i> <span>Delete</span>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

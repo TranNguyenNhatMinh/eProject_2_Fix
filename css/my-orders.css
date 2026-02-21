@@ -1,0 +1,247 @@
+/* ============================================
+   MY ORDERS PAGE
+   My Orders - Jenkinson's
+   ============================================ */
+
+.page-my-orders main {
+    min-height: 55vh;
+    background: var(--bg-lighter);
+}
+
+.page-my-orders .my-orders-container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--spacing-2xl) var(--spacing-md);
+}
+
+.page-my-orders .my-orders-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-3xl);
+    color: var(--primary-dark);
+    letter-spacing: var(--letter-spacing-tight);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+    position: relative;
+}
+
+.page-my-orders .my-orders-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* Card bọc bảng */
+.page-my-orders .my-orders-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid rgba(0, 75, 141, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.page-my-orders .my-orders-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.page-my-orders .table-responsive {
+    margin: 0;
+}
+
+.page-my-orders .table {
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+}
+
+.page-my-orders .table thead {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
+
+.page-my-orders .table thead th {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    padding: var(--spacing-lg) var(--spacing-md);
+    border: none;
+    white-space: nowrap;
+}
+
+.page-my-orders .table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.page-my-orders .table tbody tr:hover {
+    background-color: rgba(0, 134, 179, 0.04);
+    transform: translateX(2px);
+    box-shadow: 0 2px 8px rgba(0, 134, 179, 0.1);
+}
+
+.page-my-orders .table tbody td {
+    padding: var(--spacing-lg) var(--spacing-md);
+    vertical-align: middle;
+    color: var(--text-primary);
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+.page-my-orders .table tbody td:first-child {
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-dark);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9375rem;
+}
+
+.page-my-orders .table tbody td:nth-child(2) {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.page-my-orders .table tbody td:nth-child(3) {
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-dark);
+    font-size: 1rem;
+}
+
+/* Badge trạng thái */
+.page-my-orders .badge {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    padding: 0.5em 0.875em;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.page-my-orders .badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Nút Xem chi tiết */
+.page-my-orders .btn-order-detail {
+    background: var(--primary-color);
+    color: var(--text-white);
+    border: none;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 134, 179, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-my-orders .btn-order-detail:hover {
+    background: var(--primary-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 134, 179, 0.35);
+}
+
+.page-my-orders .btn-order-detail:active {
+    transform: translateY(0);
+}
+
+/* Empty state - chưa có đơn */
+.page-my-orders .my-orders-empty {
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-3xl);
+    text-align: center;
+    border: 1px dashed rgba(0, 75, 141, 0.2);
+}
+
+.page-my-orders .my-orders-empty .alert {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+.page-my-orders .my-orders-empty a {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+}
+
+.page-my-orders .my-orders-empty a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Empty state improvements */
+.page-my-orders .my-orders-empty .alert {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.page-my-orders .my-orders-empty .alert a {
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.page-my-orders .my-orders-empty .alert a:hover {
+    background: rgba(0, 134, 179, 0.1);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .page-my-orders .my-orders-container {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-my-orders .my-orders-container {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .page-my-orders .my-orders-title {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .page-my-orders .table thead th,
+    .page-my-orders .table tbody td {
+        padding: var(--spacing-md) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+    
+    .page-my-orders .table thead th:nth-child(2),
+    .page-my-orders .table tbody td:nth-child(2) {
+        display: none;
+    }
+    
+    .page-my-orders .btn-order-detail {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    .page-my-orders .badge {
+        font-size: 0.625rem;
+        padding: 0.375em 0.625em;
+    }
+}

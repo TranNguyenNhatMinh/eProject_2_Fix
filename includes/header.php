@@ -11,6 +11,9 @@ if (!function_exists('isLoggedIn')) {
     require_once __DIR__ . '/auth.php';
     require_once __DIR__ . '/functions.php';
 }
+
+// Remember current page for cart / checkout to use correct header & footer
+$_SESSION['current_site'] = $currentSite;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,14 +38,12 @@ if (!function_exists('isLoggedIn')) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- Component CSS Files -->
-    <?php 
-    // Set CSS path: use provided $cssPath or determine based on currentSite
+    <?php
+    $script = $_SERVER['SCRIPT_NAME'] ?? '';
+    $isSubFolder = (strpos($script, '/auth/') !== false || strpos($script, '/product/') !== false || strpos($script, '/componets/') !== false);
     if (!isset($cssPath)) {
-        $cssPath = ($currentSite === 'boardwalk' || $currentSite === 'sweet-shop') ? '../' : '';
+        $cssPath = ($isSubFolder || $currentSite === 'boardwalk' || $currentSite === 'sweet-shop') ? '../' : '';
     }
-    
-    // Detect if we're in componets directory - use for all paths (logo, links, etc.)
-    // If $cssPath is set to '../', we're likely in componets/
     $basePath = ($cssPath === '../' || $currentSite === 'boardwalk' || $currentSite === 'sweet-shop') ? '../' : '';
     ?>
     <!-- Base Styles - Load First -->
@@ -71,13 +72,58 @@ if (!function_exists('isLoggedIn')) {
         <link rel="stylesheet" href="<?= $cssPath ?>css/ourmission.css">
     <?php endif; ?>
     
+    <?php if (isset($currentPage) && $currentPage === 'event-detail'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/event-detail.css">
+    <?php endif; ?>
+
+    <?php if (isset($currentPage) && $currentPage === 'event-register'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/event-register.css">
+    <?php endif; ?>
+    
+    <?php if (isset($currentPage) && $currentPage === 'experience-detail'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/experience-detail.css">
+    <?php endif; ?>
+    
+    <?php if (isset($currentPage) && $currentPage === 'cart'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/cart.css">
+    <?php endif; ?>
+    
+    <?php if (isset($currentPage) && $currentPage === 'adventure-lookout'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/adventure-lookout.css">
+    <?php endif; ?>
+
+    <?php if (isset($currentPage) && $currentPage === 'arcades'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/arcades.css">
+    <?php endif; ?>
+
+    <?php if (isset($currentPage) && $currentPage === 'beach'): ?>
+<link rel="stylesheet" href="<?= $cssPath ?>css/beach.css">
+    <?php endif; ?>
+
+    <?php if (isset($currentPage) && $currentPage === 'fun-games'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/fun-games.css">
+    <?php endif; ?>
+
+    <?php if (isset($currentPage) && $currentPage === 'shopping'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/shopping.css">
+    <?php endif; ?>
+
+    <?php if (isset($currentPage) && $currentPage === 'product-detail'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/product-detail.css">
+    <?php endif; ?>
+
+
+    <?php if (isset($currentPage) && $currentPage === 'mini-golf'): ?>
+        <link rel="stylesheet" href="<?= $cssPath ?>css/mini-golf.css">
+    <?php endif; ?>
+    
     <link rel="stylesheet" href="<?= $cssPath ?>css/footer.css">
     
     <!-- Utilities & Responsive - Load Last -->
     <link rel="stylesheet" href="<?= $cssPath ?>css/utilities.css">
     <link rel="stylesheet" href="<?= $cssPath ?>css/responsive.css">
 </head>
-<body>
+<body<?= isset($currentPage) && $currentPage ? ' class="page-' . htmlspecialchars($currentPage) . '"' : '' ?>>
     <!-- Header -->
     <header class="main-header site-<?= $currentSite ?>" role="banner">
         <!-- Thin top links bar -->
@@ -109,51 +155,8 @@ if (!function_exists('isLoggedIn')) {
                         <span class="d-none d-sm-inline">VIEW HOURS</span>
                     </a>
 
-                    <div class="d-flex align-items-center gap-2 social-links" role="list">
-                        <a href="https://www.facebook.com/JenksBoardwalk/" 
-                           class="top-link text-dark"
-                           aria-label="Visit our Facebook page"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           role="listitem">
-                            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.instagram.com/JenksBoardwalk/" 
-                           class="top-link text-dark"
-                           aria-label="Visit our Instagram page"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           role="listitem">
-                            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://x.com/JenksBoardwalk/" 
-                           class="top-link text-dark"
-                           aria-label="Visit our Twitter page"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           role="listitem">
-                            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.youtube.com/user/JenkinsonsBoardwalk" 
-                           class="top-link text-dark"
-                           aria-label="Visit our YouTube channel"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           role="listitem">
-                            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-                        </a>
-                    </div>
-
-                    <button class="btn btn-link p-0 ms-2 search-btn" 
-                            type="button"
-                            aria-label="Open search"
-                            data-bs-toggle="modal"
-                            data-bs-target="#searchModal">
-                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                    </button>
-
                     <!-- Cart & Auth Links -->
-                    <a href="<?= $basePath ?>cart.php" 
+                    <a href="<?= $basePath ?>product/cart.php" 
                        class="top-link text-dark d-flex align-items-center gap-1 ms-2"
                        aria-label="Shopping cart">
                         <i class="fa-solid fa-shopping-cart" aria-hidden="true"></i>
@@ -199,12 +202,16 @@ if (!function_exists('isLoggedIn')) {
                                 <div class="dropdown-divider"></div>
                                 
                                 <!-- Menu Items -->
-                                <a href="<?= $basePath ?>my_orders.php" class="dropdown-item">
+                                <a href="<?= $basePath ?>auth/profile.php" class="dropdown-item">
+                                    <i class="fa-solid fa-user-pen item-icon"></i>
+                                    <span class="item-text">Personal Information</span>
+                                </a>
+                                <a href="<?= $basePath ?>product/my_orders.php" class="dropdown-item">
                                     <i class="fa-solid fa-box item-icon"></i>
                                     <span class="item-text">My Orders</span>
                                 </a>
                                 
-                                <a href="<?= $basePath ?>cart.php" class="dropdown-item">
+                                <a href="<?= $basePath ?>product/cart.php" class="dropdown-item">
                                     <i class="fa-solid fa-shopping-cart item-icon"></i>
                                     <span class="item-text">Cart <span class="item-badge"><?php echo getCartCount(); ?></span></span>
                                 </a>
@@ -219,14 +226,14 @@ if (!function_exists('isLoggedIn')) {
                                 
                                 <div class="dropdown-divider"></div>
                                 
-                                <a href="<?= $basePath ?>logout.php" class="dropdown-item logout-item">
+                                <a href="<?= $basePath ?>auth/logout.php" class="dropdown-item logout-item">
                                     <i class="fa-solid fa-right-from-bracket item-icon"></i>
                                     <span class="item-text">Sign Out</span>
                                 </a>
                             </div>
                         </div>
                     <?php else: ?>
-                        <a href="<?= $basePath ?>login.php" class="login-link ms-2">
+                        <a href="<?= $basePath ?>auth/login.php" class="login-link ms-2">
                             <i class="fa-solid fa-right-to-bracket"></i>
                             <span class="d-none d-sm-inline">Login</span>
                         </a>
@@ -285,10 +292,10 @@ if (!function_exists('isLoggedIn')) {
                                 <?php if ($currentSite === 'sweet-shop'): ?>
                                     <!-- Sweet Shop Menu -->
                                     <li class="nav-item" role="none">
-                                        <a href="#" class="nav-link px-3 text-dark" role="menuitem">Online Store</a>
+                                        <a href="<?= $basePath ?>componets/sweet-shop.php" class="nav-link px-3 text-dark" role="menuitem">Online Store</a>
                                     </li>
                                     <li class="nav-item" role="none">
-                                        <a href="#" class="nav-link px-3 text-dark" role="menuitem">Seasonal Sweets &amp; Treats</a>
+                                        <a href="<?= $basePath ?>componets/sweet-shop.php" class="nav-link px-3 text-dark" role="menuitem">Seasonal Sweets &amp; Treats</a>
                                     </li>
                                     <li class="nav-item" role="none">
                                         <a href="#" class="nav-link px-3 text-dark" role="menuitem">Weddings &amp; Custom Favors</a>
@@ -296,10 +303,10 @@ if (!function_exists('isLoggedIn')) {
                                 <?php elseif ($currentSite === 'boardwalk'): ?>
                                     <!-- Boardwalk Menu -->
                                     <li class="nav-item" role="none">
-                                        <a href="#" class="nav-link px-3 text-dark" role="menuitem">Explore</a>
+                                        <a href="<?= $basePath ?>componets/boardwalk.php" class="nav-link px-3 text-dark" role="menuitem">Explore</a>
                                     </li>
                                     <li class="nav-item" role="none">
-                                        <a href="#" class="nav-link px-3 text-dark" role="menuitem">Events</a>
+                                        <a href="<?= $basePath ?>index.php#upcoming-events" class="nav-link px-3 text-dark" role="menuitem">Events</a>
                                     </li>
                                     <li class="nav-item" role="none">
                                         <a href="#" class="nav-link px-3 text-dark" role="menuitem">Groups &amp; Parties</a>
@@ -308,7 +315,7 @@ if (!function_exists('isLoggedIn')) {
                                         <a href="#" class="nav-link px-3 text-dark" role="menuitem">Plan Your Visit</a>
                                     </li>
                                     <li class="nav-item" role="none">
-                                        <a href="#" class="nav-link px-3 text-dark" role="menuitem">Shop</a>
+                                        <a href="<?= $basePath ?>componets/shopping.php" class="nav-link px-3 text-dark" role="menuitem">Shop</a>
                                     </li>
                                     <li class="nav-item" role="none">
                                         <a href="#" class="nav-link px-3 text-dark" role="menuitem">Join Our Team</a>
@@ -326,8 +333,8 @@ if (!function_exists('isLoggedIn')) {
                                         </a>
                                     <ul class="dropdown-menu visit-mega-menu">
                                         <li><a class="dropdown-item" href="#">HOURS & ADMISSION</a></li>
-                                        <li><a class="dropdown-item" href="#">UPCOMING EVENTS</a></li>
-                                        <li><a class="dropdown-item" href="#">EXPERIENCES</a></li>
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>index.php#upcoming-events">UPCOMING EVENTS</a></li>
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>index.php#featured-experiences">EXPERIENCES</a></li>
                                         <li><a class="dropdown-item" href="#">PROMOTIONS</a></li>
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="#">JOIN OUR TEAM <i class="fa-solid fa-chevron-right join-team-arrow"></i></a>
@@ -360,7 +367,7 @@ if (!function_exists('isLoggedIn')) {
                                         <span class="menu-caret" aria-hidden="true">▼</span>
                                     </a>
                                     <ul class="dropdown-menu visit-mega-menu">
-                                        <li><a class="dropdown-item" href="#">EXPERIENCES</a></li>
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>index.php#featured-experiences">EXPERIENCES</a></li>
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="#">GROUPS <i class="fa-solid fa-chevron-right join-team-arrow"></i></a>
                                             <ul class="dropdown-menu submenu">
@@ -389,7 +396,7 @@ if (!function_exists('isLoggedIn')) {
                                         <li><a class="dropdown-item" href="#">ANIMAL ENCOUNTERS</a></li>
                                         <li><a class="dropdown-item" href="#">ANIMAL PROGRAMS</a></li>
                                         <li><a class="dropdown-item" href="#">PROMOTIONS</a></li>
-                                        <li><a class="dropdown-item" href="#">UPCOMING EVENTS</a></li>
+                                        <li><a class="dropdown-item" href="<?= $basePath ?>index.php#upcoming-events">UPCOMING EVENTS</a></li>
                                     </ul>
                                 </li>
                                 <?php endif; ?>

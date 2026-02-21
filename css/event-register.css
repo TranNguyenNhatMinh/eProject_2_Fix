@@ -1,0 +1,222 @@
+/* ============================================
+   EVENT REGISTER PAGE - Premium Registration Design
+   ============================================ */
+
+.page-event-register main {
+    min-height: 65vh;
+    background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 30%, #f8fafc 100%);
+    padding: var(--spacing-2xl) 0 var(--spacing-4xl);
+}
+
+/* Breadcrumb */
+.event-register-breadcrumb {
+    font-size: var(--font-size-sm);
+}
+.event-register-breadcrumb .breadcrumb-item a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-fast);
+}
+.event-register-breadcrumb .breadcrumb-item a:hover {
+    color: var(--secondary-dark);
+}
+.event-register-breadcrumb .breadcrumb-item.active {
+    color: var(--text-muted);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Main Register Card */
+.event-register-card {
+    border-radius: var(--radius-2xl);
+    border: none;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 134, 179, 0.08),
+        0 10px 20px -5px rgba(0, 134, 179, 0.1),
+        0 0 0 1px rgba(0, 134, 179, 0.06);
+    overflow: hidden;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+.event-register-card:hover {
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 134, 179, 0.12),
+        0 10px 10px -5px rgba(0, 134, 179, 0.08),
+        0 0 0 1px rgba(0, 134, 179, 0.08);
+}
+
+/* Card Header - Theme aware */
+.event-register-header {
+    padding: var(--spacing-xl) var(--spacing-2xl);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+.event-register-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+.event-register-header.adventure {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 50%, var(--secondary-light) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.event-register-header.wellness {
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #2dd4bf 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.event-register-header.default {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 50%, var(--secondary-light) 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.event-register-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-extrabold);
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    letter-spacing: var(--letter-spacing-tight);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.event-register-meta {
+    font-size: var(--font-size-sm);
+    opacity: 0.95;
+    font-weight: var(--font-weight-medium);
+}
+
+/* Card Body */
+.event-register-body {
+    padding: var(--spacing-2xl);
+    background: var(--bg-white);
+}
+
+/* Form Labels */
+.event-register-form .form-label {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Form Inputs - Modern style */
+.event-register-form .form-control {
+    padding: 0.75rem 1rem;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-lg);
+    border: 2px solid #e5e7eb;
+    background: #fafbfc;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+.event-register-form .form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(0, 134, 179, 0.15);
+    background: var(--bg-white);
+    outline: none;
+}
+.event-register-form .form-control::placeholder {
+    color: var(--text-light);
+}
+
+/* Form Groups */
+.event-register-form .form-floating,
+.event-register-form .mb-3,
+.event-register-form .mb-4 {
+    margin-bottom: var(--spacing-lg) !important;
+}
+
+/* Action Buttons */
+.event-register-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid #e5e7eb;
+}
+
+.event-register-btn-cancel {
+    padding: 0.75rem 1.5rem;
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-lg);
+    border: 2px solid #e5e7eb;
+    background: white;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+.event-register-btn-cancel:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    background: rgba(0, 134, 179, 0.05);
+}
+
+.event-register-btn-submit {
+    padding: 0.75rem 1.75rem;
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 14px rgba(0, 134, 179, 0.35);
+    transition: all var(--transition-fast);
+}
+.event-register-btn-submit:hover {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 134, 179, 0.4);
+}
+.event-register-btn-submit:active {
+    transform: translateY(0);
+}
+
+/* Theme-specific submit button */
+.event-register-card.adventure .event-register-btn-submit {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+    box-shadow: 0 4px 14px rgba(0, 134, 179, 0.35);
+}
+.event-register-card.adventure .event-register-btn-submit:hover {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 6px 20px rgba(0, 134, 179, 0.4);
+}
+
+.event-register-card.wellness .event-register-btn-submit {
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+    box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+.event-register-card.wellness .event-register-btn-submit:hover {
+    background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+    box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
+}
+
+/* Optional: Event image strip */
+.event-register-hero {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .event-register-body {
+        padding: var(--spacing-xl);
+    }
+    .event-register-header {
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+    .event-register-actions {
+        flex-direction: column;
+    }
+    .event-register-btn-cancel,
+    .event-register-btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}

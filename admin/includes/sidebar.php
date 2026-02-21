@@ -33,6 +33,21 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                 <i class="fa-solid fa-folder"></i>Categories
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link <?php echo $current_page === 'users' ? 'active' : ''; ?>" href="users.php">
+                <i class="fa-solid fa-users"></i>Users
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?php echo $current_page === 'subscriptions' ? 'active' : ''; ?>" href="subscriptions.php">
+                <i class="fa-solid fa-envelope"></i>Subscriptions
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?php echo $current_page === 'events' || $current_page === 'event_registrations' ? 'active' : ''; ?>" href="events.php">
+                <i class="fa-solid fa-calendar-days"></i>Events
+            </a>
+        </li>
         <li class="nav-item divider"></li>
         <li class="nav-item">
             <a class="nav-link" href="../index.php">
@@ -40,7 +55,7 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../logout.php">
+            <a class="nav-link" href="../auth/logout.php">
                 <i class="fa-solid fa-right-from-bracket"></i>Sign Out
             </a>
         </li>

@@ -276,20 +276,39 @@
     transform: scale(1.05);
 }
 
+.sweetshop-card-info {
+    padding: 1.25rem 1.25rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .sweetshop-card-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: #1a1a1a;
-    margin: 1rem 1rem 0.25rem;
-    line-height: 1.3;
+    color: #2d2d2d;
+    margin: 0;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
     font-family: var(--font-family-heading);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .sweetshop-card-price {
-    font-size: 0.95rem;
-    color: #666;
-    margin: 0 1rem 1rem;
-    flex: 1;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #c73e6b;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.sweetshop-add-form {
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .sweetshop-btn-card {
@@ -297,6 +316,8 @@
     background: #e8477b;
     color: #ffffff;
     width: calc(100% - 2rem);
+    border: none;
+    cursor: pointer;
 }
 
 .sweetshop-btn-card:hover {

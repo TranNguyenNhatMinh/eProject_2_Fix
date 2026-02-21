@@ -110,14 +110,14 @@ function register($username, $email, $password, $full_name = '', $phone = '') {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     if (!$hashed_password) {
         $conn->close();
-        return ['success' => false, 'message' => 'Lỗi mã hóa mật khẩu'];
+        return ['success' => false, 'message' => 'Password hashing error'];
     }
     
     // Insert new user
     $stmt = $conn->prepare("INSERT INTO users (username, email, password, full_name, phone, role) VALUES (?, ?, ?, ?, ?, 'customer')");
     if (!$stmt) {
         $conn->close();
-        return ['success' => false, 'message' => 'Lỗi chuẩn bị câu lệnh INSERT: ' . $conn->error];
+        return ['success' => false, 'message' => 'Failed to prepare INSERT statement: ' . $conn->error];
     }
     
     $stmt->bind_param("sssss", $username, $email, $hashed_password, $full_name, $phone);
@@ -139,7 +139,7 @@ function register($username, $email, $password, $full_name = '', $phone = '') {
         $error_code = $stmt->errno;
         $stmt->close();
         $conn->close();
-        return ['success' => false, 'message' => 'Đăng ký thất bại: ' . $error . ' (Code: ' . $error_code . ')'];
+        return ['success' => false, 'message' => 'Registration failed: ' . $error . ' (Code: ' . $error_code . ')'];
     }
 }
 
@@ -154,15 +154,17 @@ function logout() {
 
 /**
  * Require login - redirect nếu chưa đăng nhập
+ * @param string|null $returnUrl URL trả về sau khi đăng nhập (vd: product/checkout.php)
  */
-function requireLogin() {
+function requireLogin($returnUrl = null) {
     if (!isLoggedIn()) {
-        // Detect base path
-        $basePath = '';
-        if (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) {
-            $basePath = '../';
+        $script = $_SERVER['PHP_SELF'] ?? $_SERVER['SCRIPT_NAME'] ?? '';
+        $basePath = (strpos($script, '/admin/') !== false || strpos($script, '/product/') !== false || strpos($script, '/auth/') !== false) ? '../' : '';
+        $loginUrl = $basePath . 'auth/login.php';
+        if (!empty($returnUrl) && strpos($returnUrl, '://') === false && strpos($returnUrl, '//') !== 0) {
+            $loginUrl .= '?redirect=' . urlencode($returnUrl);
         }
-        header('Location: ' . $basePath . 'login.php');
+        header('Location: ' . $loginUrl);
         exit();
     }
 }
@@ -187,6 +189,8 @@ function requireAdmin() {
             if (strpos($_SERVER['PHP_SELF'], '/admin/') !== false) {
                 $basePath = '../';
             }
+            $script = $_SERVER['PHP_SELF'] ?? $_SERVER['SCRIPT_NAME'] ?? '';
+            $basePath = (strpos($script, '/admin/') !== false) ? '../' : '';
             header('Location: ' . $basePath . 'index.php');
             exit();
         }

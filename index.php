@@ -72,153 +72,190 @@ include 'includes/header.php';
     </div>
 </section>
 
-<section class="upcoming-events py-5">
+<section class="upcoming-events py-5" id="upcoming-events">
         <div class="container">
-            <h2 class="section-title mb-4">UPCOMING EVENTS</h2>
-            <div class="events-slider position-relative">
-                <button class="slider-btn prev-btn" aria-label="Previous events">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <div class="event-card">
-                            <img src="img/body2/b1.jpg" alt="Penguins & Pancakes" class="img-fluid">
-                            <div class="event-info">
-                                <h5>PENGUINS & PANCAKES</h5>
-                                <p>Penguins & Pancakes</p>
+            <div class="upcoming-events-header text-center mb-5">
+                <h2 class="section-title">UPCOMING EVENTS</h2>
+                <p class="upcoming-events-desc">Discover unique experiences and special programs at Jenkinson's Aquarium</p>
+            </div>
+            <div class="events-grid">
+                <div class="row g-4 g-lg-5 justify-content-center">
+                    <div class="col-lg-3 col-md-6">
+                        <a href="componets/event-detail.php?event=junior-keepers" class="event-card-link">
+                            <div class="event-card">
+                                <div class="event-card-image">
+                                    <img src="img/body/junior.png" alt="Junior Keepers" class="img-fluid">
+                                </div>
+                                <div class="event-info">
+                                    <h5>JUNIOR KEEPERS</h5>
+                                    <p>Junior Keepers (11-15 years old)</p>
+                                    <span class="event-card-cta">Learn more <i class="bi bi-arrow-right"></i></span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-md-3">
-                        <div class="event-card">
-                            <img src="img/body2/b2.jpg" alt="Junior Keepers" class="img-fluid">
-                            <div class="event-info">
-                                <h5>JUNIOR KEEPERS</h5>
-                                <p>Junior Keepers 10-15 years olds</p>
+                    <div class="col-lg-3 col-md-6">
+                        <a href="componets/event-detail.php?event=world-whale-day" class="event-card-link">
+                            <div class="event-card">
+                                <div class="event-card-image">
+                                    <img src="img/body/l2.png" alt="World Whale Day" class="img-fluid">
+                                </div>
+                                <div class="event-info">
+                                    <h5>WORLD WHALE DAY</h5>
+                                    <p>World Whale Day</p>
+                                    <span class="event-card-cta">Learn more <i class="bi bi-arrow-right"></i></span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-md-3">
-                        <div class="event-card">
-                            <img src="img/body2/b3.jpg" alt="World Whale Day" class="img-fluid">
-                            <div class="event-info">
-                                <h5>WORLD WHALE DAY</h5>
-                                <p>World Whale Day</p>
+                    <div class="col-lg-3 col-md-6">
+                        <a href="componets/event-detail.php?event=sensory-saturdays" class="event-card-link">
+                            <div class="event-card">
+                                <div class="event-card-image">
+                                    <img src="img/body/sentory.png" alt="Sensory Saturdays" class="img-fluid">
+                                </div>
+                                <div class="event-info">
+                                    <h5>SENSORY SATURDAYS</h5>
+                                    <p>Family-friendly sensory experiences</p>
+                                    <span class="event-card-cta">Learn more <i class="bi bi-arrow-right"></i></span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="col-md-3">
-                        <div class="event-card">
-                            <img src="img/body2/b4.jpg" alt="Junior Divers" class="img-fluid">
-                            <div class="event-info">
-                                <h5>JUNIOR DIVERS</h5>
-                                <p>Junior Divers 8-17 years old</p>
+                    <div class="col-lg-3 col-md-6">
+                        <a href="componets/event-detail.php?event=yoga" class="event-card-link">
+                            <div class="event-card">
+                                <div class="event-card-image">
+                                    <img src="img/body/yoga.png" alt="Yoga" class="img-fluid">
+                                </div>
+                                <div class="event-info">
+                                    <h5>YOGA</h5>
+                                    <p>All-levels yoga by the aquarium</p>
+                                    <span class="event-card-cta">Learn more <i class="bi bi-arrow-right"></i></span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-                <button class="slider-btn next-btn" aria-label="Next events">
-                    <i class="bi bi-chevron-right"></i>
-                </button>
             </div>
         </div>
     </section>
 
     <!-- Featured Experiences Section -->
-    <section class="featured-experiences py-5">
+    <section class="featured-experiences py-5" id="featured-experiences">
         <div class="container">
             <h2 class="section-title mb-4">FEATURED EXPERIENCES</h2>
-            <div class="experiences-slider-wrapper">
-                <!-- Slide 0: First 4 cards -->
+            <div class="exp-carousel">
+                <button type="button" class="exp-nav-btn exp-prev-btn" aria-label="Previous">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="exp-slides">
+                    <!-- Slide 0: First 4 cards -->
                 <div class="row g-4 experience-slide active" data-slide="0">
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b5.jpg" alt="Penguin Encounter" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
-                                <h5>Penguin Encounter</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=penguin-encounter" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp1.jpg" alt="Penguin Encounter" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
+                                    <h5>Penguin Encounter</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b6.jpg" alt="Yoga" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">FITNESS</p>
-                                <h5>All-Level Yoga</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=yoga" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp2.png" alt="Yoga" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">FITNESS</p>
+                                    <h5>All-Level Yoga</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b7.jpg" alt="Penguins & Pancakes" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
-                                <h5>Penguins & Pancakes</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=penguins-pancakes" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp3.png" alt="Penguins & Pancakes" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
+                                    <h5>Penguins & Pancakes</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b8.jpg" alt="Otter Encounter" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
-                                <h5>Otter encounter</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=otter-encounter" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp4.jpg" alt="Otter Encounter" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
+                                    <h5>Otter encounter</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <!-- Slide 1: Next 4 cards -->
                 <div class="row g-4 experience-slide" data-slide="1">
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b9.jpg" alt="Marine Life Tour" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">EDUCATIONAL TOURS</p>
-                                <h5>Marine Life Tour</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=marine-life-tour" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp5.jpg" alt="Marine Life Tour" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">EDUCATIONAL TOURS</p>
+                                    <h5>Marine Life Tour</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b10.jpg" alt="Aquarium Behind Scenes" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">BEHIND THE SCENES</p>
-                                <h5>Aquarium Behind Scenes</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=aquarium-behind-scenes" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp6.jpg" alt="Aquarium Behind Scenes" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">BEHIND THE SCENES</p>
+                                    <h5>Aquarium Behind Scenes</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b11.jpg" alt="Shark Encounter" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
-                                <h5>Shark Encounter</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=shark-encounter" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp7.jpg" alt="Shark Encounter" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">ANIMAL MEET & GREETS</p>
+                                    <h5>Shark Encounter</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-3">
-                        <div class="experience-card">
-                            <img src="img/body2/b1.jpg" alt="Family Fun Day" class="img-fluid rounded">
-                            <div class="card-body">
-                                <p class="experience-subtitle">FAMILY EVENTS</p>
-                                <h5>Family Fun Day</h5>
-                                <button class="btn btn-primary">Book Now</button>
+                        <a href="componets/experience-detail.php?experience=family-fun-day" class="experience-card-link">
+                            <div class="experience-card">
+                                <img src="img/body/cardp8.jpg" alt="Family Fun Day" class="img-fluid rounded">
+                                <div class="card-body">
+                                    <p class="experience-subtitle">FAMILY EVENTS</p>
+                                    <h5>Family Fun Day</h5>
+                                    <button class="btn btn-primary">Book Now</button>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="pagination-dots text-center mt-4">
-                <span class="dot active" data-dot="0"></span>
-                <span class="dot" data-dot="1"></span>
+                </div>
+                <button type="button" class="exp-nav-btn exp-next-btn" aria-label="Next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>

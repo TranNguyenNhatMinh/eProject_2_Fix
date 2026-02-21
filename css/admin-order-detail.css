@@ -1,0 +1,248 @@
+/* ============================================
+   ADMIN ORDER DETAIL - Giao diện gọn (bé hơn)
+   ============================================ */
+
+.admin-container-fluid {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+.admin-row,
+.admin-order-row {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.admin-order-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem !important;
+}
+
+.admin-order-row > [class*="col-"] {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.admin-content {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem !important;
+}
+
+/* Header gọn */
+.admin-page .admin-header {
+    padding: 0.6rem 1rem !important;
+}
+
+.admin-page .admin-header h2 {
+    font-size: 1.1rem !important;
+}
+
+.admin-page .admin-header h2 i {
+    font-size: 1rem !important;
+}
+
+/* Card - gọn hơn */
+.admin-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--admin-border);
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    max-height: none;
+}
+
+.admin-card-header {
+    background: #f8fafc;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-card-header h5 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.admin-card-header h5 i {
+    font-size: 0.85rem;
+}
+
+.admin-card-body {
+    padding: 0.6rem 0.75rem;
+    max-height: none;
+    overflow: visible;
+}
+
+/* Bảng sản phẩm */
+.admin-order-table thead th {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.admin-order-table tbody td {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.admin-product-thumb,
+.admin-product-thumb-placeholder {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.admin-product-name {
+    font-size: 0.8rem;
+}
+
+.admin-product-name .badge {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.35rem;
+}
+
+/* Form trong card */
+.admin-card-body .form-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.admin-card-body .form-select {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.admin-card-body .mb-3 {
+    margin-bottom: 0.6rem !important;
+}
+
+.admin-card-body .mb-4 {
+    margin-bottom: 0.75rem !important;
+}
+
+.admin-card-body .admin-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+/* Info section */
+.admin-info-section {
+    margin-bottom: 0.75rem;
+}
+
+.admin-info-section-title {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+}
+
+.admin-info-item {
+    padding: 0.35rem 0;
+    font-size: 0.8rem;
+}
+
+.admin-info-label {
+    font-size: 0.75rem;
+    min-width: 100px;
+    max-width: 120px;
+}
+
+.admin-info-value {
+    font-size: 0.8rem;
+}
+
+.admin-info-total .admin-info-label,
+.admin-info-total .admin-info-value {
+    font-size: 0.95rem;
+    padding: 0.4rem 0;
+}
+
+.admin-info-total .admin-info-value {
+    font-size: 1rem;
+}
+
+.admin-info-divider {
+    margin: 0.6rem 0;
+}
+
+.admin-info-item-highlight {
+    padding: 0.5rem 0.6rem;
+    margin: 0.35rem 0;
+}
+
+.admin-source-badge {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+.admin-address-text,
+.admin-notes-text {
+    font-size: 0.75rem;
+}
+
+.admin-notes-text {
+    padding: 0.5rem 0.6rem;
+}
+
+/* Action bar */
+.admin-action-bar {
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+}
+
+.admin-action-bar .admin-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .admin-order-row > [class*="col-"] {
+        width: 100%;
+    }
+    .admin-card-body {
+        padding: 0.5rem 0.6rem;
+    }
+    .admin-order-table thead th,
+    .admin-order-table tbody td {
+        padding: 0.3rem 0.4rem;
+        font-size: 0.75rem;
+    }
+    .admin-product-thumb,
+    .admin-product-thumb-placeholder {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .admin-content {
+        padding: 0.5rem 0.6rem !important;
+    }
+    .admin-order-table thead th,
+    .admin-order-table tbody td {
+        padding: 0.25rem 0.3rem;
+        font-size: 0.7rem;
+    }
+    .admin-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.25rem 0;
+    }
+    .admin-info-label {
+        min-width: auto;
+    }
+    .admin-info-value {
+        text-align: left;
+    }
+}

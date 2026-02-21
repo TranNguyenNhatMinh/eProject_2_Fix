@@ -1,0 +1,501 @@
+/* ============================================
+   BEACH PAGE — Colorful, professional, easy to read
+   ============================================ */
+
+.beach-page {
+    --beach-ocean: #0a7c8c;
+    --beach-ocean-dark: #066270;
+    --beach-sand: #e8c97a;
+    --beach-sand-soft: #f5ecd4;
+    --beach-coral: #d46b5e;
+    --beach-sky: #7eb8d4;
+    --beach-text: #1a2b36;
+    --beach-text-soft: #4a5f6f;
+    --beach-bg: #f0f7f9;
+    --beach-bg-alt: #fff;
+    --beach-border: #d4e4e8;
+    --beach-radius: 10px;
+    font-family: var(--font-family-primary);
+    color: var(--beach-text);
+    background: var(--beach-bg);
+}
+
+.beach-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ----- Ảnh đầu trang — giống card boardwalk ----- */
+.beach-top-image-wrap {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.beach-top-image {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #eee;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beach-top-image:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.beach-top-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.beach-top-image:hover img {
+    transform: scale(1.06);
+}
+
+/* ----- Sections ----- */
+.beach-section {
+    padding: 3.5rem 0;
+    background: linear-gradient(180deg, #f0f7f9 0%, #e8f2f5 100%);
+}
+
+.beach-section--alt {
+    background: linear-gradient(180deg, #fff 0%, var(--beach-sand-soft) 100%);
+}
+
+.beach-section__title {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: 1.65rem;
+    color: var(--beach-ocean-dark);
+    margin: 0 0 0.5rem 0;
+    padding: 0.35rem 0 0.5rem 0;
+    border-bottom: 3px solid var(--beach-ocean);
+    display: inline-block;
+}
+
+.beach-section__lead {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--beach-text-soft);
+    margin: 0 0 1.75rem 0;
+    max-width: 560px;
+}
+
+/* Where to buy */
+.beach-where {
+    background: linear-gradient(90deg, rgba(10, 124, 140, 0.12) 0%, rgba(126, 184, 212, 0.08) 100%);
+    border-left: 4px solid var(--beach-ocean);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: 0 var(--beach-radius) var(--beach-radius) 0;
+}
+
+.beach-where strong {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--beach-ocean-dark);
+    margin-bottom: 0.35rem;
+}
+
+.beach-where p {
+    font-size: 0.95rem;
+    color: var(--beach-text-soft);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Cards grid */
+.beach-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.beach-card {
+    display: block;
+    background: var(--beach-bg-alt);
+    padding: 1.5rem;
+    border-radius: var(--beach-radius);
+    border: 2px solid var(--beach-border);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(10, 124, 140, 0.06);
+}
+
+.beach-card:hover {
+    box-shadow: 0 8px 24px rgba(10, 124, 140, 0.15);
+    border-color: var(--beach-ocean);
+    transform: translateY(-3px);
+}
+
+.beach-card:nth-child(1) i { color: var(--beach-ocean); }
+.beach-card:nth-child(2) i { color: var(--beach-sky); }
+.beach-card:nth-child(3) i { color: var(--beach-sand); }
+.beach-card:nth-child(4) i { color: var(--beach-coral); }
+
+.beach-card i {
+    display: block;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.beach-card h3 {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--beach-text);
+    margin: 0 0 0.5rem 0;
+}
+
+.beach-card__link {
+    font-size: 0.85rem;
+    color: var(--beach-ocean);
+    font-weight: 600;
+}
+
+/* Pricing */
+.beach-pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.beach-pricing-card {
+    background: var(--beach-bg-alt);
+    padding: 1.5rem;
+    border-radius: var(--beach-radius);
+    border: 2px solid var(--beach-border);
+    border-top: 4px solid var(--beach-ocean);
+    box-shadow: 0 2px 12px rgba(10, 124, 140, 0.08);
+}
+
+.beach-pricing-card:last-of-type {
+    border-top-color: var(--beach-sky);
+}
+
+.beach-pricing-card h3 {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--beach-ocean-dark);
+    margin: 0 0 1rem 0;
+}
+
+.beach-pricing-card h3 small {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--beach-text-soft);
+    margin-top: 0.2rem;
+}
+
+.beach-pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.beach-pricing-card li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--beach-border);
+    font-size: 0.95rem;
+}
+
+.beach-pricing-card li:last-child {
+    border-bottom: none;
+}
+
+.beach-pricing-card span {
+    color: var(--beach-text-soft);
+}
+
+.beach-pricing-card b {
+    color: var(--beach-text);
+}
+
+.beach-pricing-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--beach-text-soft);
+    margin: 0.75rem 0 0 0;
+}
+
+.beach-pricing-note i {
+    color: var(--beach-ocean);
+    flex-shrink: 0;
+}
+
+.beach-table-block {
+    margin-bottom: 1.5rem;
+}
+
+.beach-table-block h3 {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--beach-text);
+    margin: 0 0 0.75rem 0;
+}
+
+.beach-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: var(--beach-bg-alt);
+    border-radius: var(--beach-radius);
+    overflow: hidden;
+    border: 1px solid var(--beach-border);
+}
+
+.beach-table thead {
+    background: linear-gradient(135deg, var(--beach-ocean) 0%, var(--beach-ocean-dark) 100%);
+}
+
+.beach-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.beach-table td {
+    padding: 0.65rem 1rem;
+    border-top: 1px solid var(--beach-border);
+    color: var(--beach-text-soft);
+}
+
+.beach-table td:last-child,
+.beach-table th:last-child {
+    text-align: right;
+}
+
+.beach-table-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--beach-text-soft);
+    margin: 0.5rem 0 0 0;
+}
+
+.beach-table-note i {
+    color: #b45309;
+    flex-shrink: 0;
+}
+
+.beach-tip {
+    font-size: 0.9rem;
+    color: var(--beach-ocean-dark);
+    padding: 1rem 1.25rem;
+    background: linear-gradient(90deg, rgba(232, 201, 122, 0.2) 0%, rgba(126, 184, 212, 0.1) 100%);
+    border-radius: var(--beach-radius);
+    border-left: 4px solid var(--beach-sand);
+    margin: 0;
+}
+
+/* Hours — two col */
+.beach-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.beach-figure {
+    margin: 0;
+    border-radius: var(--beach-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(10, 124, 140, 0.15);
+    border: 2px solid var(--beach-border);
+}
+
+.beach-figure img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+}
+
+.beach-info__item {
+    margin-bottom: 1.5rem;
+}
+
+.beach-info__item:last-child {
+    margin-bottom: 0;
+}
+
+.beach-info__item h3 {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--beach-ocean-dark);
+    margin: 0 0 0.4rem 0;
+}
+
+.beach-info__item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--beach-text-soft);
+    margin: 0;
+}
+
+.beach-alert {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(90deg, rgba(10, 124, 140, 0.1) 0%, rgba(126, 184, 212, 0.06) 100%);
+    border-left: 4px solid var(--beach-ocean);
+    border-radius: 0 var(--beach-radius) var(--beach-radius) 0;
+    font-size: 0.88rem;
+    color: var(--beach-text-soft);
+    line-height: 1.5;
+}
+
+.beach-alert i {
+    color: var(--beach-ocean);
+    flex-shrink: 0;
+}
+
+/* Rules */
+.beach-rules-box {
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    background: var(--beach-bg-alt);
+    border-radius: var(--beach-radius);
+    border: 2px solid var(--beach-border);
+}
+
+.beach-rules-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--beach-text);
+    margin: 0 0 0.75rem 0;
+}
+
+.beach-rules-box h3 i {
+    color: var(--beach-text-soft);
+}
+
+.beach-rules-box ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--beach-text-soft);
+    line-height: 1.7;
+}
+
+.beach-rules-box--no {
+    background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+    border-left: 4px solid var(--beach-coral);
+}
+
+.beach-rules-box--no h3 i {
+    color: var(--beach-coral);
+}
+
+.beach-rules-box--law {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, rgba(10, 124, 140, 0.06) 0%, rgba(126, 184, 212, 0.06) 100%);
+    border-left: 4px solid var(--beach-ocean);
+}
+
+.beach-rules-box--law > i {
+    font-size: 1.25rem;
+    color: var(--beach-ocean);
+    flex-shrink: 0;
+}
+
+.beach-rules-box--law p {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.88rem;
+    color: var(--beach-text-soft);
+}
+
+.beach-rules-box--law strong {
+    font-size: 0.95rem;
+    color: var(--beach-text);
+}
+
+.beach-rules-end {
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--beach-sand-soft) 0%, rgba(232, 201, 122, 0.15) 100%);
+    border-radius: var(--beach-radius);
+    border: 2px solid rgba(232, 201, 122, 0.4);
+}
+
+.beach-rules-end__thanks {
+    font-style: italic;
+    color: var(--beach-ocean-dark);
+    margin: 0 0 0.2rem 0;
+}
+
+.beach-rules-end__bye {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--beach-ocean-dark);
+    margin: 0;
+}
+
+.beach-rules-footer {
+    font-size: 0.88rem;
+    color: var(--beach-text-soft);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .beach-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .beach-pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .beach-two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .beach-section {
+        padding: 2.5rem 0;
+    }
+
+    .beach-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .beach-inner {
+        padding: 0 1rem;
+    }
+}

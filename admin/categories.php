@@ -98,10 +98,13 @@ if (isset($_GET['edit'])) {
                 </div>
                 
                 <?php if (isset($_GET['success'])): ?>
-                    <div class="alert alert-success">Action completed successfully!</div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fa-solid fa-check-circle me-2"></i>Action completed successfully!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php endif; ?>
                 
-                <!-- Add / Edit form -->
+                <!-- Add/Edit Category Form -->
                 <div class="admin-form-card mb-4">
                     <div class="card-header">
                         <h5><i class="fa-solid fa-<?php echo $edit_category ? 'edit' : 'plus'; ?> me-2"></i><?php echo $edit_category ? 'Edit Category' : 'Add New Category'; ?></h5>
@@ -162,10 +165,8 @@ if (isset($_GET['edit'])) {
                 
                 <!-- Categories list -->
                 <div class="admin-table">
-                    <div class="card-header" style="padding: 1.5rem; background: white; border-bottom: 2px solid #f0f0f0;">
-                        <h5 style="margin: 0; font-weight: 700; color: #1e3a5f;">
-                            <i class="fa-solid fa-list me-2"></i>Category List
-                        </h5>
+                    <div class="admin-table-header">
+                        <i class="fa-solid fa-list"></i> Category List
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -192,15 +193,17 @@ if (isset($_GET['edit'])) {
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="?edit=<?php echo $category['category_id']; ?>" class="admin-btn admin-btn-warning admin-btn-sm">
-                                                    <i class="fa-solid fa-edit me-1"></i>Edit
-                                                </a>
-                                                <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete?');">
-                                                    <input type="hidden" name="category_id" value="<?php echo $category['category_id']; ?>">
-                                                    <button type="submit" name="delete_category" class="admin-btn admin-btn-danger admin-btn-sm ms-1">
-                                                        <i class="fa-solid fa-trash me-1"></i>Delete
-                                                    </button>
-                                                </form>
+                                                <div class="d-flex gap-2">
+                                                    <a href="?edit=<?php echo $category['category_id']; ?>" class="admin-btn admin-btn-warning admin-btn-sm" title="Edit Category">
+                                                        <i class="fa-solid fa-edit"></i> <span>Edit</span>
+                                                    </a>
+                                                    <form method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete?');">
+                                                        <input type="hidden" name="category_id" value="<?php echo $category['category_id']; ?>">
+                                                        <button type="submit" name="delete_category" class="admin-btn admin-btn-danger admin-btn-sm" title="Delete Category">
+                                                            <i class="fa-solid fa-trash"></i> <span>Delete</span>
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

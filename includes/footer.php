@@ -15,7 +15,7 @@
                             ?>
                                 <img src="<?= $imgPath ?>img/sweetshop.png" alt="Jenkinson's Sweet Shop" class="footer-logo-img">
                             <?php else: ?>
-                                <img src="<?= $imgPath ?>img/imgfooter.ong.png" alt="Jenkinson's Boardwalk Logo" class="footer-logo-img">
+                                <img src="<?= $imgPath ?>img/imgfooter.png" alt="Jenkinson's Boardwalk Logo" class="footer-logo-img">
                             <?php endif; ?>
                         </div>
                         <?php if (!isset($currentSite) || $currentSite !== 'sweet-shop'): ?>
@@ -80,9 +80,10 @@
                 <!-- Column 4: Stay Connected -->
                 <div class="col-md-3 col-sm-6">
                     <h6 class="mb-3 fw-bold">Stay Connected with Us for more!</h6>
-                    <form class="newsletter-form d-flex flex-column gap-2" method="post" action="<?= (isset($currentSite) && ($currentSite === 'boardwalk' || $currentSite === 'sweet-shop')) ? '../' : '' ?>subscribe.php">
-                        <input type="email" name="email" class="form-control" placeholder="E-Mail" required>
-                        <button type="submit" class="btn btn-subscribe fw-semibold">SUBSCRIBE</button>
+                    <div id="subscribe-message-container"></div>
+                    <form id="newsletter-form" class="newsletter-form d-flex flex-column gap-2" method="post" action="<?= (isset($basePath) ? $basePath : '') ?>api/subscribe.php">
+                        <input type="email" name="email" id="subscribe-email" class="form-control" placeholder="E-Mail" required>
+                        <button type="submit" class="btn btn-subscribe fw-semibold" id="subscribe-btn">SUBSCRIBE</button>
                     </form>
                 </div>
             </div>
@@ -98,6 +99,17 @@
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="<?= (isset($currentSite) && ($currentSite === 'boardwalk' || $currentSite === 'sweet-shop')) ? '../' : '' ?>js/script.js?v=<?= time() ?>"></script>
+    <?php
+    $jsPath = (isset($currentSite) && ($currentSite === 'boardwalk' || $currentSite === 'sweet-shop')) ? '../' : '';
+    ?>
+    <!-- Newsletter subscription (loaded on all pages) -->
+    <script src="<?= $jsPath ?>js/common/newsletter.js?v=<?= time() ?>"></script>
+    <?php
+    // Load homepage scripts only on homepage
+    $script = $_SERVER['SCRIPT_NAME'] ?? '';
+    if (basename($script) === 'index.php' || (isset($currentSite) && $currentSite === 'aquarium' && strpos($script, 'index.php') !== false)):
+    ?>
+    <script src="<?= $jsPath ?>js/pages/homepage.js?v=<?= time() ?>"></script>
+    <?php endif; ?>
 </body>
 </html>

@@ -1,0 +1,421 @@
+/* ============================================
+   ADVENTURE LOOKOUT PAGE - Premium Design
+   ============================================ */
+
+.page-adventure-lookout main {
+    min-height: 55vh;
+    background: var(--bg-white);
+}
+
+.adventure-lookout-container {
+    padding: 0;
+    background: var(--bg-white);
+}
+
+.adventure-lookout-container .container {
+    max-width: 1200px;
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+}
+
+/* Header Banner */
+.adventure-header-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.adventure-header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.adventure-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.adventure-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 2;
+}
+
+.adventure-header-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.adventure-header-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-extrabold);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-tight);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+/* Closure Notice */
+.adventure-closure-notice {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-xl);
+    margin: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 152, 0, 0.08) 100%);
+    border-left: 4px solid #ffc107;
+    border-radius: var(--radius-lg);
+}
+
+.closure-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-extrabold);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    line-height: var(--line-height-tight);
+}
+
+.closure-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: var(--line-height-relaxed);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Gallery Strip */
+.adventure-gallery-strip {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: var(--spacing-xl) 0;
+    margin: var(--spacing-2xl) 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.gallery-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-xl);
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition-base);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-xl);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Content Sections */
+.adventure-content-section {
+    margin-bottom: var(--spacing-3xl);
+    padding-top: var(--spacing-xl);
+}
+
+.adventure-types-section {
+    margin-bottom: var(--spacing-3xl);
+    padding-top: var(--spacing-xl);
+}
+
+.adventure-rules-section {
+    margin-bottom: var(--spacing-3xl);
+    padding-top: var(--spacing-xl);
+}
+
+.adventure-section-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-extrabold);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+    position: relative;
+    padding-bottom: var(--spacing-md);
+    line-height: var(--line-height-tight);
+}
+
+.adventure-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: var(--radius-sm);
+}
+
+.adventure-intro-text {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 0;
+    max-width: 900px;
+}
+
+/* Adventure Types Grid */
+.adventure-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+}
+
+.adventure-type-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.adventure-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--secondary-color);
+}
+
+.adventure-type-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-extrabold);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    line-height: var(--line-height-tight);
+}
+
+.adventure-type-description {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-xl);
+    flex-grow: 1;
+}
+
+.adventure-type-details {
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid rgba(0, 0, 0, 0.08);
+    margin-top: auto;
+}
+
+.adventure-type-details p {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-normal);
+    padding-left: var(--spacing-sm);
+}
+
+.adventure-type-details strong {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-bold);
+    min-width: 200px;
+    display: inline-block;
+}
+
+/* Rules Section */
+.rules-container {
+    background: var(--bg-lighter);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    border-left: 4px solid var(--secondary-color);
+    margin-top: var(--spacing-lg);
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md) var(--spacing-xl);
+    column-gap: var(--spacing-xl);
+}
+
+.rules-list li {
+    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg);
+    position: relative;
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    min-height: 44px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.rules-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: var(--spacing-sm);
+    color: #28a745;
+    font-weight: var(--font-weight-bold);
+    font-size: 1.2em;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(40, 167, 69, 0.1);
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .adventure-header-banner {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .adventure-lookout-container .container {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+    }
+    
+    .gallery-item {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .adventure-types-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .rules-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .adventure-header-banner {
+        height: 40vh;
+        min-height: 250px;
+    }
+    
+    .adventure-lookout-container .container {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    
+    .adventure-header-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .adventure-closure-notice {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-xl) 0;
+    }
+    
+    .closure-title {
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .closure-subtitle {
+        font-size: var(--font-size-sm);
+    }
+    
+    .gallery-images {
+        gap: var(--spacing-sm);
+        padding: 0 var(--spacing-md);
+    }
+    
+    .gallery-item {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .adventure-content-section,
+    .adventure-types-section,
+    .adventure-rules-section {
+        margin-bottom: var(--spacing-2xl);
+        padding-top: var(--spacing-lg);
+    }
+    
+    .adventure-section-title {
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-sm);
+    }
+    
+    .adventure-type-card {
+        padding: var(--spacing-xl);
+    }
+    
+    .adventure-type-description {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .adventure-type-details {
+        padding-top: var(--spacing-md);
+    }
+    
+    .rules-container {
+        padding: var(--spacing-xl);
+    }
+    
+    .rules-list {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .rules-list li {
+        min-height: auto;
+        padding-bottom: var(--spacing-xs);
+    }
+}

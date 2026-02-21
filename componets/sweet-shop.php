@@ -1,6 +1,10 @@
 <?php
 $currentSite = 'sweet-shop';
+require_once __DIR__ . '/../includes/functions.php';
 include '../includes/header.php';
+
+// Sweet Shop category_id = 3
+$sweet_products = getProductsByCategory(3);
 ?>
 
 <!-- Hero Section - cùng format bên xanh (tagline, title 2 dòng, nút CTA) -->
@@ -16,7 +20,7 @@ include '../includes/header.php';
                 <div class="sweetshop-subtitle-underline"></div>
             </div>
             <h1 class="sweetshop-hero-title">WELCOME TO<br>JENKINSON'S <span class="sweetshop-hero-accent">SWEET SHOP</span></h1>
-            <a href="#" class="sweetshop-btn sweetshop-btn-cta">Shop Our Store</a>
+            <a href="sweet-shop-order.php" class="sweetshop-btn sweetshop-btn-cta">Add to cart</a>
         </div>
     </div>
 </section>
@@ -33,69 +37,26 @@ include '../includes/header.php';
 </section>
 
 <!-- Product Grid -->
-<section class="sweetshop-products">
+<section class="sweetshop-products" id="sweetshop-products">
     <div class="container">
         <div class="row g-4">
+            <?php foreach ($sweet_products as $p):
+                $price = !empty($p['sale_price']) ? $p['sale_price'] : $p['price'];
+                $imgSrc = !empty($p['image']) ? '../' . htmlspecialchars($p['image']) : '../img/sweetshop/p1.jpg';
+            ?>
             <div class="col-md-6 col-lg-4">
                 <div class="sweetshop-card">
                     <div class="sweetshop-card-img-wrap">
-                        <img src="../img/sweetshop/p1.jpg" alt="Apples" class="sweetshop-card-img">
+                        <img src="<?= $imgSrc ?>" alt="<?= htmlspecialchars($p['product_name']) ?>" class="sweetshop-card-img">
                     </div>
-                    <h3 class="sweetshop-card-title">Apples</h3>
-                    <p class="sweetshop-card-price">$6.00 – $11.00</p>
-                    <button type="button" class="sweetshop-btn sweetshop-btn-card">Select options</button>
+                    <div class="sweetshop-card-info">
+                        <h3 class="sweetshop-card-title"><?= htmlspecialchars($p['product_name']) ?></h3>
+                        <p class="sweetshop-card-price"><?= formatCurrency($price) ?></p>
+                    </div>
+                    <a href="product-detail.php?id=<?= $p['product_id'] ?>" class="sweetshop-btn sweetshop-btn-card d-inline-block text-center text-decoration-none">Add to cart</a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="sweetshop-card">
-                    <div class="sweetshop-card-img-wrap">
-                        <img src="../img/sweetshop/p2.jpg" alt="Souvenir Salt Water Taffy" class="sweetshop-card-img">
-                    </div>
-                    <h3 class="sweetshop-card-title">Souvenir Salt Water Taffy</h3>
-                    <p class="sweetshop-card-price">$14.99</p>
-                    <button type="button" class="sweetshop-btn sweetshop-btn-card">Add to cart</button>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="sweetshop-card">
-                    <div class="sweetshop-card-img-wrap">
-                        <img src="../img/sweetshop/p3.jpg" alt="Assortment of Fudges" class="sweetshop-card-img">
-                    </div>
-                    <h3 class="sweetshop-card-title">Assortment of Fudges</h3>
-                    <p class="sweetshop-card-price">$7.50 – $18.99</p>
-                    <button type="button" class="sweetshop-btn sweetshop-btn-card">Select options</button>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="sweetshop-card">
-                    <div class="sweetshop-card-img-wrap">
-                        <img src="../img/sweetshop/p4.jpg" alt="Sweet Shop Sampler Chocolate Box" class="sweetshop-card-img">
-                    </div>
-                    <h3 class="sweetshop-card-title">Sweet Shop Sampler Chocolate Box</h3>
-                    <p class="sweetshop-card-price">$25.50 – $49.95</p>
-                    <button type="button" class="sweetshop-btn sweetshop-btn-card">Select options</button>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="sweetshop-card">
-                    <div class="sweetshop-card-img-wrap">
-                        <img src="../img/sweetshop/p5.jpg" alt="Salt Water Taffy" class="sweetshop-card-img">
-                    </div>
-                    <h3 class="sweetshop-card-title">Salt Water Taffy</h3>
-                    <p class="sweetshop-card-price">$8.25 – $29.99</p>
-                    <button type="button" class="sweetshop-btn sweetshop-btn-card">Select options</button>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="sweetshop-card">
-                    <div class="sweetshop-card-img-wrap">
-                        <img src="../img/sweetshop/p6.avif" alt="More treats" class="sweetshop-card-img">
-                    </div>
-                    <h3 class="sweetshop-card-title">Gift Baskets</h3>
-                    <p class="sweetshop-card-price">From $19.99</p>
-                    <button type="button" class="sweetshop-btn sweetshop-btn-card">Select options</button>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

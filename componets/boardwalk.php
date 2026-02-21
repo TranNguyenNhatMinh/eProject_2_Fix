@@ -33,17 +33,11 @@ include '../includes/header.php';
     <div class="container">
         <h2 class="boardwalk-discover-heading">Discover More</h2>
         <div class="boardwalk-discover-grid">
-            <a href="#" class="boardwalk-discover-card">
+            <a href="adventure-lookout.php" class="boardwalk-discover-card">
                 <div class="boardwalk-discover-img-wrap">
                     <img src="../img/body2/b1.jpg" alt="Adventure Lookout">
                 </div>
                 <h3 class="boardwalk-discover-title">Adventure Lookout</h3>
-            </a>
-            <a href="#" class="boardwalk-discover-card">
-                <div class="boardwalk-discover-img-wrap">
-                    <img src="../img/body2/b2.jpg" alt="Amusement Park">
-                </div>
-                <h3 class="boardwalk-discover-title">Amusement Park</h3>
             </a>
             <a href="../index.php" class="boardwalk-discover-card">
                 <div class="boardwalk-discover-img-wrap">
@@ -51,49 +45,31 @@ include '../includes/header.php';
                 </div>
                 <h3 class="boardwalk-discover-title">Aquarium</h3>
             </a>
-            <a href="#" class="boardwalk-discover-card">
+            <a href="arcades.php" class="boardwalk-discover-card">
                 <div class="boardwalk-discover-img-wrap">
                     <img src="../img/body2/b4.jpg" alt="Arcades">
                 </div>
                 <h3 class="boardwalk-discover-title">Arcades</h3>
             </a>
-            <a href="#" class="boardwalk-discover-card">
+            <a href="beach.php" class="boardwalk-discover-card">
                 <div class="boardwalk-discover-img-wrap">
                     <img src="../img/body2/b5.jpg" alt="Beach">
                 </div>
                 <h3 class="boardwalk-discover-title">Beach</h3>
             </a>
-            <a href="#" class="boardwalk-discover-card">
-                <div class="boardwalk-discover-img-wrap">
-                    <img src="../img/body2/b6.jpg" alt="Food and Drink">
-                </div>
-                <h3 class="boardwalk-discover-title">Food and Drink</h3>
-            </a>
-            <a href="#" class="boardwalk-discover-card">
+            <a href="fun-games.php" class="boardwalk-discover-card">
                 <div class="boardwalk-discover-img-wrap">
                     <img src="../img/body2/b7.jpg" alt="Fun and Games">
                 </div>
                 <h3 class="boardwalk-discover-title">Fun and Games</h3>
             </a>
-            <a href="#" class="boardwalk-discover-card">
-                <div class="boardwalk-discover-img-wrap">
-                    <img src="../img/body2/b8.jpg" alt="Join Our Team">
-                </div>
-                <h3 class="boardwalk-discover-title">Join Our Team</h3>
-            </a>
-            <a href="#" class="boardwalk-discover-card">
+            <a href="mini-golf.php" class="boardwalk-discover-card">
                 <div class="boardwalk-discover-img-wrap">
                     <img src="../img/body2/b9.jpg" alt="Mini Golf">
                 </div>
                 <h3 class="boardwalk-discover-title">Mini Golf</h3>
             </a>
-            <a href="#" class="boardwalk-discover-card">
-                <div class="boardwalk-discover-img-wrap">
-                    <img src="../img/body2/b10.jpg" alt="Events">
-                </div>
-                <h3 class="boardwalk-discover-title">Events</h3>
-            </a>
-            <a href="#" class="boardwalk-discover-card">
+            <a href="shopping.php" class="boardwalk-discover-card">
                 <div class="boardwalk-discover-img-wrap">
                     <img src="../img/body2/b11.jpg" alt="Shopping">
                 </div>

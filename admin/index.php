@@ -97,11 +97,12 @@ $conn->close();
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Recent Orders -->
                 <div class="admin-table">
                     <div class="admin-table-header">
                         <i class="fa-solid fa-clock"></i> Recent Orders
+                        <span class="badge bg-primary ms-2"><?php echo count($recent_orders); ?></span>
                     </div>
                     <div class="table-responsive">
                         <table class="table">
@@ -119,7 +120,7 @@ $conn->close();
                                     <?php foreach ($recent_orders as $order): ?>
                                         <tr>
                                             <td><?php echo htmlspecialchars($order['order_number']); ?></td>
-                                            <td><?php echo htmlspecialchars($order['customer_name']); ?></td>
+                                            <td title="<?php echo htmlspecialchars($order['customer_name']); ?>"><?php echo htmlspecialchars($order['customer_name']); ?></td>
                                             <td><?php echo formatCurrency($order['total_amount']); ?></td>
                                             <td>
                                                 <span class="badge bg-warning"><?php 
@@ -129,8 +130,8 @@ $conn->close();
                                             </td>
                                             <td><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></td>
                                             <td>
-                                                <a href="order_detail.php?id=<?php echo $order['order_id']; ?>" class="admin-btn admin-btn-primary admin-btn-sm">
-                                                    <i class="fa-solid fa-eye"></i> View
+                                                <a href="order_detail.php?id=<?php echo $order['order_id']; ?>" class="admin-btn admin-btn-primary admin-btn-sm" title="View Order">
+                                                    <i class="fa-solid fa-eye"></i> <span>View</span>
                                                 </a>
                                             </td>
                                         </tr>

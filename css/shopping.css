@@ -1,0 +1,352 @@
+/* ============================================
+   SHOPPING PAGE - Professional & Clean Design
+   ============================================ */
+
+.page-shopping main {
+    min-height: 55vh;
+    background: #ffffff;
+}
+
+.shopping-container {
+    padding: 0;
+    background: #ffffff;
+}
+
+.shopping-container .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Hero Banner */
+.shopping-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    min-height: 300px;
+    max-height: 450px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    background: #1a1a1a;
+}
+
+.shopping-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.shopping-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.85) contrast(1.05) saturate(1.1);
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.shopping-hero-banner:hover .shopping-hero-image img {
+    transform: scale(1.03);
+    filter: brightness(0.9) contrast(1.1) saturate(1.15);
+}
+
+.shopping-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+.shopping-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.shopping-hero-title {
+    font-family: var(--font-family-heading);
+    font-weight: 800;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Intro Section */
+.shopping-intro {
+    text-align: center;
+    margin: 4rem auto 3rem;
+    padding: 0 1rem;
+    max-width: 700px;
+}
+
+.shopping-intro-heading {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
+    color: #1a1a1a;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+.shopping-intro-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0;
+    font-family: var(--font-family-primary);
+    font-weight: 400;
+}
+
+/* Shopping Links Section */
+.shopping-links {
+    margin: 3rem 0 5rem;
+}
+
+.shopping-link-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    border: 1px solid #e9ecef;
+}
+
+.shopping-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    color: inherit;
+    border-color: #dee2e6;
+}
+
+.shopping-link-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.shopping-link-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.shopping-link-card:hover .shopping-link-image img {
+    transform: scale(1.05);
+}
+
+.shopping-link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.shopping-link-card:hover .shopping-link-overlay {
+    opacity: 1;
+}
+
+.shopping-link-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.shopping-link-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.shopping-link-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.shopping-card-aquarium .shopping-link-icon {
+    background: #e6f7ff;
+    color: #0086b3;
+}
+
+.shopping-card-sweet .shopping-link-icon {
+    background: #fff0f6;
+    color: #e91e63;
+}
+
+.shopping-link-card:hover .shopping-link-icon {
+    transform: scale(1.1);
+}
+
+.shopping-card-aquarium:hover .shopping-link-icon {
+    background: #0086b3;
+    color: #ffffff;
+}
+
+.shopping-card-sweet:hover .shopping-link-icon {
+    background: #e91e63;
+    color: #ffffff;
+}
+
+.shopping-link-title {
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+.shopping-link-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+    font-family: var(--font-family-primary);
+}
+
+.shopping-link-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0086b3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-family-heading);
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.shopping-card-sweet .shopping-link-cta {
+    color: #e91e63;
+}
+
+.shopping-link-card:hover .shopping-link-cta {
+    gap: 0.75rem;
+}
+
+.shopping-link-cta i {
+    transition: transform 0.3s ease;
+}
+
+.shopping-link-card:hover .shopping-link-cta i {
+    transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .shopping-intro {
+        margin: 3rem auto 2rem;
+    }
+
+    .shopping-links {
+        margin: 2rem 0 4rem;
+    }
+
+    .shopping-link-image {
+        height: 240px;
+    }
+
+    .shopping-link-content {
+        padding: 1.75rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .shopping-hero-banner {
+        height: 35vh;
+        min-height: 220px;
+        max-height: 300px;
+    }
+
+    .shopping-hero-title {
+        font-size: 1.875rem;
+    }
+
+    .shopping-intro {
+        margin: 2.5rem auto 1.5rem;
+    }
+
+    .shopping-intro-heading {
+        font-size: 1.5rem;
+    }
+
+    .shopping-intro-text {
+        font-size: 1rem;
+    }
+
+    .shopping-link-image {
+        height: 200px;
+    }
+
+    .shopping-link-content {
+        padding: 1.5rem;
+    }
+
+    .shopping-link-header {
+        gap: 0.75rem;
+    }
+
+    .shopping-link-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    .shopping-link-title {
+        font-size: 1.5rem;
+    }
+
+    .shopping-link-description {
+        font-size: 0.9375rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .shopping-link-cta {
+        font-size: 0.9375rem;
+    }
+}

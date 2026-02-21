@@ -1,0 +1,568 @@
+/* ============================================
+   EVENT DETAIL PAGE - Premium Design
+   ============================================ */
+
+.page-event-detail main {
+    min-height: 55vh;
+    background: var(--bg-white);
+}
+
+.event-detail-container {
+    padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+    background: var(--bg-white);
+}
+
+.event-detail-header {
+    margin-bottom: var(--spacing-3xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 2px solid rgba(0, 134, 179, 0.1);
+}
+
+.event-tagline {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--secondary-light);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-family-heading);
+}
+
+.event-detail-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-extrabold);
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+    line-height: var(--line-height-tight);
+    position: relative;
+    padding-bottom: var(--spacing-md);
+}
+
+.event-detail-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 160px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+    border-radius: var(--radius-sm);
+}
+
+.event-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.event-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--bg-lighter);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--secondary-color);
+    transition: var(--transition-base);
+}
+
+.event-meta-item:hover {
+    background: rgba(0, 134, 179, 0.05);
+    transform: translateX(4px);
+}
+
+.meta-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+    position: relative;
+    padding-bottom: var(--spacing-xs);
+    font-family: var(--font-family-heading);
+}
+
+.meta-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+    border-radius: var(--radius-xs);
+}
+
+.meta-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    font-family: var(--font-family-heading);
+}
+
+.event-detail-content {
+    margin-bottom: var(--spacing-4xl);
+    padding-top: var(--spacing-xl);
+}
+
+.event-description {
+    margin-bottom: var(--spacing-xl);
+    padding-right: var(--spacing-lg);
+}
+
+.event-description p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: 0;
+    font-weight: var(--font-weight-normal);
+}
+
+.event-requirements {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(0, 134, 179, 0.05) 0%, rgba(0, 163, 217, 0.03) 100%);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.requirements-text {
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-heading);
+}
+
+.event-requirements p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    font-weight: var(--font-weight-medium);
+}
+
+.btn-register {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    font-family: var(--font-family-heading);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-register::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-base);
+}
+
+.btn-register:hover {
+    color: var(--text-white);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
+}
+
+.btn-register:hover::before {
+    left: 100%;
+}
+
+.event-image-wrapper {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 12px 40px rgba(0, 51, 102, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: var(--transition-base);
+    position: sticky;
+    top: var(--spacing-xl);
+    background: #f8fafc;
+}
+
+.event-image-wrapper:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 20px 50px rgba(0, 51, 102, 0.08);
+    transform: translateY(-2px);
+}
+
+.event-detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+}
+.event-image-wrapper:hover .event-detail-image {
+    filter: contrast(1.03);
+}
+
+.related-events-section {
+    margin-top: var(--spacing-4xl);
+    padding-top: var(--spacing-3xl);
+    border-top: 2px solid rgba(0, 134, 179, 0.1);
+}
+
+.related-events-title {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-extrabold);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+    position: relative;
+    padding-bottom: var(--spacing-md);
+}
+
+.related-events-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 140px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+    border-radius: var(--radius-sm);
+}
+
+.related-event-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: var(--transition-base);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.related-event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 134, 179, 0) 0%, rgba(0, 134, 179, 0.05) 100%);
+    opacity: 0;
+    transition: var(--transition-base);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.related-event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--secondary-color);
+}
+
+.related-event-card:hover::before {
+    opacity: 1;
+}
+
+.related-event-card img {
+    width: 180px;
+    min-width: 140px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+    flex-shrink: 0;
+    transition: var(--transition-base);
+    position: relative;
+    z-index: 0;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+}
+
+.related-event-card:hover img {
+    transform: scale(1.08);
+}
+
+.related-event-info {
+    padding: var(--spacing-md) var(--spacing-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    background: var(--bg-white);
+    min-width: 0;
+}
+
+.related-event-info h5 {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    font-family: var(--font-family-heading);
+    line-height: var(--line-height-tight);
+    transition: var(--transition-base);
+}
+
+.related-event-card:hover .related-event-info h5 {
+    color: var(--secondary-color);
+}
+
+.related-event-info p {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: var(--line-height-normal);
+    font-weight: var(--font-weight-medium);
+}
+
+.event-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.event-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ============================================
+   EVENT THEMES - Distinct look per event
+   ============================================ */
+
+/* Adventure - Junior Keepers (aqua/blue) */
+.event-theme-adventure .event-detail-title::after,
+.event-theme-adventure .event-detail-header { border-color: rgba(0, 134, 179, 0.2); }
+.event-theme-adventure .event-detail-title::after { background: linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-light) 100%); }
+.event-theme-adventure .event-tagline { color: var(--secondary-dark); }
+.event-theme-adventure .event-meta-item { border-left-color: var(--secondary-color); }
+.event-theme-adventure .event-meta-item:hover { background: rgba(0, 134, 179, 0.06); }
+.event-theme-adventure .meta-label::after { background: var(--secondary-color); }
+.event-theme-adventure .event-requirements { border-left-color: var(--secondary-color); background: linear-gradient(135deg, rgba(0, 134, 179, 0.06) 0%, rgba(0, 163, 217, 0.03) 100%); }
+.event-theme-adventure .btn-register { background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%); }
+.event-theme-adventure .btn-register:hover { background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%); }
+.event-theme-adventure .related-events-title::after,
+.event-theme-adventure .related-events-section { border-color: rgba(0, 134, 179, 0.15); }
+.event-theme-adventure .related-events-title::after { background: linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-light) 100%); }
+.event-theme-adventure .related-event-card:hover { border-color: var(--secondary-color); }
+.event-theme-adventure .related-event-card:hover .related-event-info h5 { color: var(--secondary-color); }
+
+/* Wellness - Yoga (green/teal calm) */
+.event-theme-wellness .event-detail-title::after,
+.event-theme-wellness .event-detail-header { border-color: rgba(16, 185, 129, 0.2); }
+.event-theme-wellness .event-detail-title::after { background: linear-gradient(90deg, #0d9488 0%, #14b8a6 100%); }
+.event-theme-wellness .event-tagline { color: #0d9488; }
+.event-theme-wellness .event-meta-item { border-left-color: #0d9488; }
+.event-theme-wellness .event-meta-item:hover { background: rgba(16, 185, 129, 0.06); }
+.event-theme-wellness .meta-label::after { background: #0d9488; }
+.event-theme-wellness .event-requirements { border-left-color: #0d9488; background: linear-gradient(135deg, rgba(16, 185, 129, 0.06) 0%, rgba(20, 184, 166, 0.03) 100%); }
+.event-theme-wellness .btn-register { background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%); }
+.event-theme-wellness .btn-register:hover { background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); }
+.event-theme-wellness .related-events-title::after,
+.event-theme-wellness .related-events-section { border-color: rgba(16, 185, 129, 0.15); }
+.event-theme-wellness .related-events-title::after { background: linear-gradient(90deg, #0d9488 0%, #14b8a6 100%); }
+.event-theme-wellness .related-event-card:hover { border-color: #0d9488; }
+.event-theme-wellness .related-event-card:hover .related-event-info h5 { color: #0d9488; }
+.event-theme-wellness .event-detail-container { background: linear-gradient(180deg, #ffffff 0%, #f0fdfa 15%, #ffffff 100%); }
+
+/* Conservation - World Whale Day (ocean blue) */
+.event-theme-conservation .event-detail-title::after,
+.event-theme-conservation .event-detail-header { border-color: rgba(6, 95, 70, 0.2); }
+.event-theme-conservation .event-detail-title::after { background: linear-gradient(90deg, #0369a1 0%, #0ea5e9 100%); }
+.event-theme-conservation .event-tagline { color: #0369a1; }
+.event-theme-conservation .event-meta-item { border-left-color: #0369a1; }
+.event-theme-conservation .event-meta-item:hover { background: rgba(6, 182, 212, 0.06); }
+.event-theme-conservation .meta-label::after { background: #0369a1; }
+.event-theme-conservation .event-requirements { border-left-color: #0369a1; background: linear-gradient(135deg, rgba(6, 182, 212, 0.06) 0%, rgba(14, 165, 233, 0.03) 100%); }
+.event-theme-conservation .related-events-title::after,
+.event-theme-conservation .related-events-section { border-color: rgba(6, 182, 212, 0.15); }
+.event-theme-conservation .related-events-title::after { background: linear-gradient(90deg, #0369a1 0%, #0ea5e9 100%); }
+.event-theme-conservation .related-event-card:hover { border-color: #0369a1; }
+.event-theme-conservation .related-event-card:hover .related-event-info h5 { color: #0369a1; }
+.event-theme-conservation .event-detail-container { background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 15%, #ffffff 100%); }
+
+/* Hero image for World Whale Day */
+.event-image-hero-wrapper {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 12px 40px rgba(0, 51, 102, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background: #f8fafc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.event-image-hero-wrapper:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1), 0 20px 50px rgba(0, 51, 102, 0.08);
+}
+.event-image-hero {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: opacity 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+}
+.event-image-hero-wrapper:hover .event-image-hero {
+    filter: contrast(1.03);
+}
+
+/* Inclusive - Sensory Saturdays (soft lavender) */
+.event-theme-inclusive .event-detail-title::after,
+.event-theme-inclusive .event-detail-header { border-color: rgba(139, 92, 246, 0.15); }
+.event-theme-inclusive .event-detail-title::after { background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%); }
+.event-theme-inclusive .event-tagline { color: #7c3aed; }
+.event-theme-inclusive .event-meta-item { border-left-color: #7c3aed; }
+.event-theme-inclusive .event-meta-item:hover { background: rgba(139, 92, 246, 0.05); }
+.event-theme-inclusive .meta-label::after { background: #7c3aed; }
+.event-theme-inclusive .event-requirements { border-left-color: #7c3aed; background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(167, 139, 250, 0.03) 100%); }
+.event-theme-inclusive .related-events-title::after,
+.event-theme-inclusive .related-events-section { border-color: rgba(139, 92, 246, 0.12); }
+.event-theme-inclusive .related-events-title::after { background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%); }
+.event-theme-inclusive .related-event-card:hover { border-color: #7c3aed; }
+.event-theme-inclusive .related-event-card:hover .related-event-info h5 { color: #7c3aed; }
+.event-theme-inclusive .event-detail-container { background: linear-gradient(180deg, #ffffff 0%, #faf5ff 15%, #ffffff 100%); }
+
+@media (max-width: 992px) {
+    .event-description {
+        padding-right: 0;
+    }
+    
+    .event-image-wrapper {
+        position: static;
+        margin-top: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .event-image-hero {
+        height: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .event-detail-container {
+        padding: var(--spacing-xl) 0 var(--spacing-2xl);
+    }
+    
+    .event-detail-header {
+        margin-bottom: var(--spacing-xl);
+        padding-bottom: var(--spacing-lg);
+    }
+    
+    .event-detail-title {
+        margin-bottom: var(--spacing-lg);
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    .event-detail-title::after {
+        width: 100px;
+        height: 3px;
+    }
+    
+    .event-detail-meta {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .event-meta-item {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .event-detail-content {
+        margin-bottom: var(--spacing-2xl);
+        padding-top: var(--spacing-lg);
+    }
+    
+    .event-description {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .event-description p {
+        font-size: var(--font-size-base);
+    }
+    
+    .event-requirements {
+        padding: var(--spacing-md);
+    }
+    
+    .requirements-text,
+    .event-requirements p {
+        font-size: var(--font-size-base);
+    }
+    
+    .btn-register {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: var(--font-size-base);
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .event-detail-content .row {
+        flex-direction: column-reverse;
+    }
+    
+    .event-image-wrapper {
+        margin-bottom: var(--spacing-lg);
+        margin-top: 0;
+    }
+    
+    .related-events-section {
+        margin-top: var(--spacing-2xl);
+        padding-top: var(--spacing-xl);
+    }
+    
+    .related-events-title {
+        margin-bottom: var(--spacing-lg);
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+    
+    .related-events-title::after {
+        width: 100px;
+        height: 3px;
+    }
+    
+    .related-event-card img {
+        width: 120px;
+        min-width: 100px;
+        height: 100px;
+        border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+    }
+    
+    .related-event-info {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    .related-event-info h5 {
+        font-size: var(--font-size-sm);
+    }
+    
+    .event-image-hero {
+        height: 200px;
+    }
+}

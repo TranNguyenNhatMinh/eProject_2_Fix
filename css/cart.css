@@ -1,0 +1,118 @@
+/* ============================================
+   CART PAGE - Navigation Buttons & Styles
+   ============================================ */
+
+/* Cart Navigation Buttons */
+.cart-navigation-buttons {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cart-nav-left,
+.cart-nav-right {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.btn-cart-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: var(--transition-base);
+    font-family: var(--font-family-heading);
+    border: 2px solid transparent;
+    min-height: 44px;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Home Button */
+.btn-cart-nav-home {
+    background: #6c757d;
+    color: var(--text-white);
+    border-color: #6c757d;
+}
+
+.btn-cart-nav-home:hover {
+    background: #5a6268;
+    border-color: #5a6268;
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Aquarium Button */
+.btn-cart-nav-aquarium {
+    background: var(--secondary-color);
+    color: var(--text-white);
+    border-color: var(--secondary-color);
+}
+
+.btn-cart-nav-aquarium:hover {
+    background: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Sweet Shop Button */
+.btn-cart-nav-sweet-shop {
+    background: var(--bg-white);
+    color: var(--text-secondary);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-cart-nav-sweet-shop:hover {
+    background: var(--bg-lighter);
+    border-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Checkout Button */
+.btn-cart-nav-checkout {
+    background: var(--primary-color);
+    color: var(--text-white);
+    border-color: var(--primary-color);
+}
+
+.btn-cart-nav-checkout:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-cart-nav:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cart-navigation-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .cart-nav-left,
+    .cart-nav-right {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .btn-cart-nav {
+        width: 100%;
+        justify-content: center;
+    }
+}

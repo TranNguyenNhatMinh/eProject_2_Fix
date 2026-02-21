@@ -21,18 +21,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
     exit();
 }
 
-// Fetch orders list
+// Fetch orders list (whitelist status to avoid SQL injection)
+$allowed_statuses = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
 $filter_status = $_GET['status'] ?? '';
-$sql = "SELECT * FROM orders";
-if ($filter_status) {
-    $sql .= " WHERE order_status = '" . $conn->real_escape_string($filter_status) . "'";
+if ($filter_status !== '' && !in_array($filter_status, $allowed_statuses, true)) {
+    $filter_status = '';
 }
-$sql .= " ORDER BY created_at DESC";
-
-$result = $conn->query($sql);
+if ($filter_status !== '') {
+    $stmt = $conn->prepare("SELECT * FROM orders WHERE order_status = ? ORDER BY created_at DESC");
+    $stmt->bind_param("s", $filter_status);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    $result = $conn->query("SELECT * FROM orders ORDER BY created_at DESC");
+}
 $orders = [];
 while ($row = $result->fetch_assoc()) {
     $orders[] = $row;
+}
+if (isset($stmt)) {
+    $stmt->close();
 }
 $conn->close();
 ?>
@@ -46,8 +54,9 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-orders.css">
 </head>
-<body class="admin-page">
+<body class="admin-page admin-orders-page">
     <div class="container-fluid">
         <div class="row">
             <?php include 'includes/sidebar.php'; ?>
@@ -61,19 +70,35 @@ $conn->close();
                 </div>
                 
                 <?php if (isset($_GET['success'])): ?>
-                    <div class="alert alert-success">Update successful!</div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fa-solid fa-check-circle me-2"></i>Update successful!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php endif; ?>
                 
                 <!-- Filter -->
-                <div class="mb-3">
-                    <a href="orders.php" class="btn btn-sm <?php echo !$filter_status ? 'btn-primary' : 'btn-outline-primary'; ?>">All</a>
-                    <a href="?status=pending" class="btn btn-sm <?php echo $filter_status == 'pending' ? 'btn-primary' : 'btn-outline-primary'; ?>">Pending</a>
-                    <a href="?status=processing" class="btn btn-sm <?php echo $filter_status == 'processing' ? 'btn-primary' : 'btn-outline-primary'; ?>">Processing</a>
-                    <a href="?status=shipped" class="btn btn-sm <?php echo $filter_status == 'shipped' ? 'btn-primary' : 'btn-outline-primary'; ?>">Shipped</a>
-                    <a href="?status=delivered" class="btn btn-sm <?php echo $filter_status == 'delivered' ? 'btn-primary' : 'btn-outline-primary'; ?>">Delivered</a>
+                <div class="admin-orders-filters">
+                    <a href="orders.php" class="btn btn-sm <?php echo !$filter_status ? 'btn-primary' : 'btn-outline-primary'; ?>">
+                        <i class="fa-solid fa-list"></i>All
+                    </a>
+                    <a href="?status=pending" class="btn btn-sm <?php echo $filter_status == 'pending' ? 'btn-primary' : 'btn-outline-primary'; ?>">
+                        <i class="fa-solid fa-clock"></i>Pending
+                    </a>
+                    <a href="?status=processing" class="btn btn-sm <?php echo $filter_status == 'processing' ? 'btn-primary' : 'btn-outline-primary'; ?>">
+                        <i class="fa-solid fa-spinner"></i>Processing
+                    </a>
+                    <a href="?status=shipped" class="btn btn-sm <?php echo $filter_status == 'shipped' ? 'btn-primary' : 'btn-outline-primary'; ?>">
+                        <i class="fa-solid fa-truck"></i>Shipped
+                    </a>
+                    <a href="?status=delivered" class="btn btn-sm <?php echo $filter_status == 'delivered' ? 'btn-primary' : 'btn-outline-primary'; ?>">
+                        <i class="fa-solid fa-check-circle"></i>Delivered
+                    </a>
                 </div>
                 
-                <div class="admin-table">
+                <div class="admin-table admin-orders-table">
+                    <div class="admin-table-header">
+                        <i class="fa-solid fa-shopping-cart"></i> All Orders
+                    </div>
                     <div class="table-responsive">
                         <table class="table">
                                 <thead>
@@ -124,8 +149,8 @@ $conn->close();
                                             </td>
                                             <td><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></td>
                                             <td>
-                                                <a href="order_detail.php?id=<?php echo $order['order_id']; ?>" class="admin-btn admin-btn-primary admin-btn-sm">
-                                                    <i class="fa-solid fa-eye me-1"></i>View Details
+                                                <a href="order_detail.php?id=<?php echo $order['order_id']; ?>" class="admin-btn admin-btn-primary admin-btn-sm" title="View Order Details">
+                                                    <i class="fa-solid fa-eye"></i> <span>View</span>
                                                 </a>
                                             </td>
                                         </tr>

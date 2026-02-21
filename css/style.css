@@ -4,3 +4,16 @@
 
 /* This file is kept for backward compatibility
    Individual component CSS files are loaded separately in header.php */
+
+/* Sticky footer: giữ footer luôn sát đáy trang khi nội dung ít (cart, product pages) */
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.boardwalk-footer {
+    margin-top: auto;
+}
